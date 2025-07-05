@@ -5,11 +5,12 @@ extends CharacterBody2D
 signal player_hidden
 signal player_unhidden
 signal killed_by_env
+signal killed_by_enemy
 
 var input := Vector2.ZERO
 var played_dead_animation := false
 var player_speed: int = 150
-var player_dead := false
+var player_dead := true
 var is_currently_hidden := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -22,11 +23,11 @@ func _physics_process(_delta: float) -> void:
 	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * player_speed
-
+		
 		# Flip the sprite based on direction
 		if input_vector.x != 0:
 			anim.scale.x = abs(anim.scale.x) * sign(input_vector.x)
-
+		
 		anim.play("walk")
 	else:
 		velocity = Vector2.ZERO
@@ -58,5 +59,12 @@ func unhide_player() -> void:
 	is_currently_hidden = false
 	emit_signal("player_unhidden")
 
-func kill_by_env():
+## Bunuh player sama environment
+func kill_by_env() -> void:
+	player_dead = true
 	emit_signal("killed_by_env")
+
+## Bunuh player sama Enemy
+func kill_by_enemy() -> void:
+	player_dead = true
+	emit_signal("killed_by_enemy")
