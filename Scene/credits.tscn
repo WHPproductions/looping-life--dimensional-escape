@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ektiw8sdaxx"]
+
+[ext_resource type="Texture2D" uid="uid://i7p771h4sxtd" path="res://Asset/menu/credits IGG.png" id="1_3hbp5"]
+[ext_resource type="Script" uid="uid://dh3yo7cr8qdn3" path="res://Scene/credits.gd" id="1_3rv14"]
+[ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_3rv14"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wofek"]
+bg_color = Color(0.144063, 0.144063, 0.144062, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pb5xx"]
+texture = ExtResource("1_3hbp5")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rv14")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 605.0
+offset_bottom = 341.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wofek")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 59.0
+offset_right = 424.0
+offset_bottom = 401.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pb5xx")
+
+[node name="next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 284.0
+offset_right = 564.0
+offset_bottom = 315.0
+theme_override_fonts/font = ExtResource("2_3rv14")
+theme_override_font_sizes/font_size = 17
+text = "NEXT"
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
