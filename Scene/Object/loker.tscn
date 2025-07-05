@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvmjfp7ie1v1l"]
+
+[ext_resource type="Script" uid="uid://bfbnqlpqri7xe" path="res://Scene/Object/loker.gd" id="1_6c1xm"]
+[ext_resource type="Texture2D" uid="uid://bdavae367xuxo" path="res://Asset/Terrain/Object/locker.png" id="2_6c1xm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nx3f"]
+atlas = ExtResource("2_6c1xm")
+region = Rect2(0, 0, 21, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x38m"]
+atlas = ExtResource("2_6c1xm")
+region = Rect2(21, 0, 21, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7ekn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nx3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x38m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c1xm"]
+size = Vector2(18, 32)
+
+[node name="Loker" type="Area2D"]
+script = ExtResource("1_6c1xm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y7ekn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6c1xm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

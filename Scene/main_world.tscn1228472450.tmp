@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://hs3gptmr0gm1"]
+
+[ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
+[ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="2_keov8"]
+[ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="3_8emdh"]
+
+[node name="main_world" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_keov8")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_2av1i")]
+position = Vector2(210, 1050)
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="Kamar" type="StaticBody2D" parent="Collisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/Kamar"]
+polygon = PackedVector2Array(246, 1065, 246, 1075, 234, 1075, 234, 1084, 229, 1084, 230, 1077, 228, 1077, 228, 1090, 230, 1090, 234, 1090, 234, 1093, 246, 1093, 247, 1100, 243, 1104, 181, 1104, 177, 1101, 177, 1097, 189, 1097, 189, 1077, 189, 1072, 177, 1071, 177, 1067, 124, 1067, 124, 1036, 139, 1036, 139, 1027, 177, 1027, 177, 1003, 221, 1004, 221, 993, 246, 994, 247, 1009, 247, 1026, 306, 1026, 306, 1001, 274, 1001, 250, 960, 174, 956, 157, 983, 158, 996, 112, 997, 112, 1066, 113, 1089, 159, 1086, 164, 1112, 211, 1120, 267, 1124, 265, 1078, 305, 1078, 305, 1066)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Loker" parent="Objects" instance=ExtResource("3_8emdh")]
+position = Vector2(450, 965)

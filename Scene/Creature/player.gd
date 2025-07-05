@@ -1,9 +1,15 @@
+class_name Player
 extends CharacterBody2D
+
+# Signal untuk player tersembunyi. Sebenarnya bisa sama is_currently_hidden aja sih
+signal player_hidden
+signal player_unhidden
 
 var input := Vector2.ZERO
 var played_dead_animation := false
-var player_speed := 150
+var player_speed: int = 150
 var player_dead := false
+var is_currently_hidden := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -38,3 +44,15 @@ func get_input() -> Vector2:
 		input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	return input.normalized()
+
+## Menyembunyikan si Player
+func hide_player() -> void:
+	modulate = Color(1, 1, 1, 0.5)
+	is_currently_hidden = true
+	emit_signal("player_hidden")
+
+## Me
+func unhide_player() -> void:
+	modulate = Color(1, 1, 1, 1)
+	is_currently_hidden = false
+	emit_signal("player_unhidden")
