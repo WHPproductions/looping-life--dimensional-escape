@@ -10,7 +10,7 @@ signal killed_by_enemy
 var input := Vector2.ZERO
 var played_dead_animation := false
 var player_speed: int = 150
-var player_dead := true
+var player_dead := false
 var is_currently_hidden := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -62,6 +62,7 @@ func unhide_player() -> void:
 ## Bunuh player sama environment
 func kill_by_env() -> void:
 	player_dead = true
+	$CollisionShape2D.disabled = true
 	emit_signal("killed_by_env")
 
 ## Bunuh player sama Enemy

@@ -95,35 +95,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbrl6"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2e8q"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxve6"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2hwue"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbrl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2e8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxve6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4md47"]
 atlas = ExtResource("6_pm1jm")
 region = Rect2(0, 0, 44, 63)
@@ -262,6 +233,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbrl6"]
+atlas = ExtResource("5_6qxnp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2e8q"]
+atlas = ExtResource("5_6qxnp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxve6"]
+atlas = ExtResource("5_6qxnp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hwue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbrl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2e8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxve6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="main_world" type="Node2D"]
 script = ExtResource("1_d2e8q")
 
@@ -298,11 +298,6 @@ frame_progress = 0.0999589
 position = Vector2(388, 1291)
 sprite_frames = SubResource("SpriteFrames_4md47")
 frame_progress = 0.654564
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Object/Spike2"]
-position = Vector2(628, 1467)
-sprite_frames = SubResource("SpriteFrames_2hwue")
-frame_progress = 0.716127
 
 [node name="DoorGudang" type="Node2D" parent="Object"]
 
@@ -466,10 +461,12 @@ polygon = PackedVector2Array(709, 730, 738, 730, 738, 728, 746, 728, 746, 713, 7
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_2av1i")]
+unique_name_in_owner = true
 position = Vector2(200, 1020)
 scale = Vector2(1, 1)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
