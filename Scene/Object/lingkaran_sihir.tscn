@@ -1,0 +1,147 @@
+[gd_scene load_steps=14 format=3 uid="uid://bofn7ebhpfs3h"]
+
+[ext_resource type="Script" uid="uid://boml7t0xys8sa" path="res://Scene/Object/lingkaran_sihir.gd" id="1_nfj7g"]
+[ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="2_rcmwj"]
+[ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="3_wnla2"]
+[ext_resource type="Texture2D" uid="uid://bn16w2dubqwt3" path="res://Asset/Terrain/Object/light_mask.png" id="4_hxrr5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk76q"]
+atlas = ExtResource("2_rcmwj")
+region = Rect2(0, 0, 132, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbrl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk76q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23caf"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d5sr"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drhv3"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mighw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23caf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d5sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drhv3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_wnla2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nfj7g"]
+resource_name = "activated"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcmwj"]
+_data = {
+&"RESET": SubResource("Animation_wnla2"),
+&"activated": SubResource("Animation_nfj7g")
+}
+
+[node name="LingkaranSihir" type="Node2D"]
+script = ExtResource("1_nfj7g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lbrl6")
+
+[node name="Cahaya" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(60, 0)
+sprite_frames = SubResource("SpriteFrames_mighw")
+frame_progress = 0.924665
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/Cahaya"]
+scale = Vector2(0.0433311, 0.0501016)
+color = Color(0, 0.611765, 0.560784, 1)
+energy = 15.64
+texture = ExtResource("4_hxrr5")
+
+[node name="Cahaya2" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(0, 60)
+sprite_frames = SubResource("SpriteFrames_mighw")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/Cahaya2"]
+scale = Vector2(0.0433311, 0.0501016)
+color = Color(0, 0.611765, 0.560784, 1)
+energy = 15.64
+texture = ExtResource("4_hxrr5")
+
+[node name="Cahaya3" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(-60, 0)
+sprite_frames = SubResource("SpriteFrames_mighw")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/Cahaya3"]
+scale = Vector2(0.0433311, 0.0501016)
+color = Color(0, 0.611765, 0.560784, 1)
+energy = 15.64
+texture = ExtResource("4_hxrr5")
+
+[node name="Cahaya4" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(0, -60)
+sprite_frames = SubResource("SpriteFrames_mighw")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/Cahaya4"]
+scale = Vector2(0.0433311, 0.0501016)
+color = Color(0, 0.611765, 0.560784, 1)
+energy = 15.64
+texture = ExtResource("4_hxrr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rcmwj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rcmwj")
+}

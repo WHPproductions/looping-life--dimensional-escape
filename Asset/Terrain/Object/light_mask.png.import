@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5bq24mda0mha"
-path="res://.godot/imported/text (no line).png-2c321575f7f8e4db5431878e009b515f.ctex"
+uid="uid://bn16w2dubqwt3"
+path="res://.godot/imported/light_mask.png-b9390a0bd79a2879db2d5b357d9fa7c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/menu/text (no line).png"
-dest_files=["res://.godot/imported/text (no line).png-2c321575f7f8e4db5431878e009b515f.ctex"]
+source_file="res://Asset/Terrain/Object/light_mask.png"
+dest_files=["res://.godot/imported/light_mask.png-b9390a0bd79a2879db2d5b357d9fa7c0.ctex"]
 
 [params]
 

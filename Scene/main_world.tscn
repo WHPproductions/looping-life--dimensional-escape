@@ -1,9 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=48 format=3 uid="uid://hs3gptmr0gm1"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="2_keov8"]
-[ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="3_aimj0"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
 [ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
 [ext_resource type="PackedScene" uid="uid://c7qroh4hncdsq" path="res://Scene/Object/kunci.tscn" id="5_4md47"]
@@ -14,26 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://br3bokqw2kjla" path="res://Asset/Terrain/Object/kunci_kantin.png" id="7_lrnoa"]
 [ext_resource type="Texture2D" uid="uid://b16ijp6sm120p" path="res://Asset/Terrain/Object/DoorLapang.png" id="8_7sxw6"]
 [ext_resource type="Texture2D" uid="uid://qj48cjud8o1u" path="res://Asset/Terrain/Object/kunci_gudang.png" id="8_a0n1j"]
+[ext_resource type="PackedScene" uid="uid://bofn7ebhpfs3h" path="res://Scene/Object/lingkaran_sihir.tscn" id="9_lrnoa"]
 [ext_resource type="Texture2D" uid="uid://drlm56oamw1gj" path="res://Asset/Terrain/Object/DoorLapangKantin.png" id="9_m01w0"]
 [ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="10_wev5e"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
-[ext_resource type="PackedScene" uid="uid://bfsaj8sygm80" path="res://Scene/Object/spike.tscn" id="14_2hwue"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sk76q"]
-atlas = ExtResource("3_aimj0")
-region = Rect2(0, 0, 132, 132)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lbrl6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sk76q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://dexqpoe8oi2s2" path="res://Scene/Object/spike.tscn" id="14_2hwue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm1jm"]
 atlas = ExtResource("4_6qxnp")
@@ -261,26 +246,23 @@ position = Vector2(1017, 604)
 position = Vector2(1017, 659)
 rotation = 3.14159
 
-[node name="Kunci" parent="Object" instance=ExtResource("5_4md47")]
-position = Vector2(381, 1051)
+[node name="KunciLapangan" parent="Object" instance=ExtResource("5_4md47")]
+position = Vector2(618, 1341)
 kunci = "kunci_lapangan"
 texture = ExtResource("6_efshx")
 
-[node name="Kunci2" parent="Object" instance=ExtResource("5_4md47")]
+[node name="KunciKantin" parent="Object" instance=ExtResource("5_4md47")]
 position = Vector2(428, 1026)
 kunci = "kunci_kantin"
 texture = ExtResource("7_lrnoa")
 
-[node name="Kunci3" parent="Object" instance=ExtResource("5_4md47")]
-position = Vector2(437, 1076)
+[node name="KunciGudang" parent="Object" instance=ExtResource("5_4md47")]
+position = Vector2(836, 663)
 kunci = "kunci_gudang"
 texture = ExtResource("8_a0n1j")
 
-[node name="LingkaranSihir" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/LingkaranSihir"]
+[node name="LingkaranSihir" parent="Object" instance=ExtResource("9_lrnoa")]
 position = Vector2(861, 1073)
-sprite_frames = SubResource("SpriteFrames_lbrl6")
 
 [node name="Portal" type="Node2D" parent="Object"]
 
@@ -460,7 +442,7 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("13_sxve6")]
-position = Vector2(859, 1061)
+position = Vector2(746, 981)
 
 [node name="Timers" type="Node" parent="."]
 unique_name_in_owner = true
@@ -468,6 +450,7 @@ unique_name_in_owner = true
 [node name="PlayerKilledByEnv" type="Timer" parent="Timers"]
 one_shot = true
 
-[connection signal="player_in_area" from="Object/Kunci" to="." method="_on_kunci_player_in_area"]
-[connection signal="player_in_area" from="Object/Kunci2" to="." method="_on_kunci_player_in_area"]
-[connection signal="player_in_area" from="Object/Kunci3" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/KunciLapangan" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/KunciKantin" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/KunciGudang" to="." method="_on_kunci_player_in_area"]
+[connection signal="activated" from="Object/LingkaranSihir" to="." method="_on_lingkaran_sihir_activated"]

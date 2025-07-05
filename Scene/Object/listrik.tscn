@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb1nwks74tqtb"]
+[gd_scene load_steps=12 format=3 uid="uid://bb1nwks74tqtb"]
 
 [ext_resource type="Script" uid="uid://ur1iqu1n6as0" path="res://Scene/Object/listrik.gd" id="1_0abhw"]
 [ext_resource type="Texture2D" uid="uid://0adhgrm7wn8n" path="res://Asset/Terrain/Trap/Listrik.png" id="1_dl46v"]
+[ext_resource type="AudioStream" uid="uid://cdwlnlsx77e5g" path="res://Asset/Sounds/electric_zap.mp3" id="3_11s5j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0abhw"]
 atlas = ExtResource("1_dl46v")
@@ -67,6 +68,9 @@ frame_progress = 0.0686515
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ListrikArea"]
 shape = SubResource("RectangleShape2D_dl46v")
+
+[node name="AudioTersengat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_11s5j")
 
 [connection signal="body_entered" from="ListrikArea" to="." method="_on_listrik_area_body_entered"]
 [connection signal="body_exited" from="ListrikArea" to="." method="_on_listrik_area_body_exited"]

@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _on_spike_area_body_entered(body: Node2D) -> void:
 	if body is Player:
+		$AudioSlashed.play()
 		body.kill_by_env()
 		$SpikeArea.queue_free()
 		$Spike.stop()

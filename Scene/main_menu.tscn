@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d27eaxnq8enwh" path="res://Scene/main_menu.gd" id="1_kqsxi"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_hii65"]
-[ext_resource type="Texture2D" uid="uid://brr5665udijhs" path="res://Asset/menu/Screenshot 2025-07-05 190755.png" id="2_pvidh"]
-[ext_resource type="Texture2D" uid="uid://n5kxpsgpl57k" path="res://Asset/menu/menu karakter(revisi).png" id="5_hptlk"]
-[ext_resource type="Texture2D" uid="uid://5bq24mda0mha" path="res://Asset/menu/text (no line).png" id="5_pvidh"]
+[ext_resource type="Texture2D" uid="uid://brr5665udijhs" path="res://Asset/menu/BackgroundMenu.png" id="2_pvidh"]
+[ext_resource type="Texture2D" uid="uid://n5kxpsgpl57k" path="res://Asset/menu/KarakterMenu.png" id="5_hptlk"]
+[ext_resource type="Texture2D" uid="uid://5bq24mda0mha" path="res://Asset/menu/ScreenTitle.png" id="5_pvidh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hii65"]
 border_color = Color(0.876389, 0.77297, 0.762829, 1)
@@ -24,11 +24,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kqsxi")
 
-[node name="Screenshot2025-07-05190755" type="Sprite2D" parent="."]
-modulate = Color(0.581033, 0.581033, 0.581033, 1)
-position = Vector2(288, 160)
-scale = Vector2(0.25, 0.25)
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.552956, 0.552956, 0.552956, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -21.0
+offset_right = 23.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_pvidh")
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -47,7 +56,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.133196, 0.133196, 0.133196, 1)
 theme_override_fonts/font = ExtResource("2_hii65")
@@ -59,7 +68,7 @@ flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="credit" type="Button" parent="VBoxContainer"]
+[node name="Credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hii65")
 theme_override_font_sizes/font_size = 29
@@ -68,7 +77,7 @@ text = "Credits"
 flat = true
 alignment = 0
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hii65")
 theme_override_font_sizes/font_size = 29
@@ -77,16 +86,29 @@ text = "Exit"
 flat = true
 alignment = 0
 
-[node name="MenuKarakter(revisi)" type="Sprite2D" parent="."]
-position = Vector2(400, 192)
-scale = Vector2(-0.4, 0.4)
-texture = ExtResource("5_hptlk")
-
-[node name="judul" type="Sprite2D" parent="."]
-position = Vector2(149, 49.935)
-scale = Vector2(0.464844, 0.464844)
+[node name="Judul2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_right = 287.0
+offset_bottom = 115.0
 texture = ExtResource("5_pvidh")
+expand_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/start" to="." method="on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/credit" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="KarakterMenu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = -14.0
+offset_right = 6.0
+offset_bottom = 391.0
+grow_horizontal = 0
+texture = ExtResource("5_hptlk")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
