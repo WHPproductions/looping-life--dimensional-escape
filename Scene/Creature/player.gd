@@ -4,6 +4,7 @@ extends CharacterBody2D
 # Signal untuk player tersembunyi. Sebenarnya bisa sama is_currently_hidden aja sih
 signal player_hidden
 signal player_unhidden
+signal killed_by_env
 
 var input := Vector2.ZERO
 var played_dead_animation := false
@@ -51,8 +52,11 @@ func hide_player() -> void:
 	is_currently_hidden = true
 	emit_signal("player_hidden")
 
-## Me
+## Mereveal si Player
 func unhide_player() -> void:
 	modulate = Color(1, 1, 1, 1)
 	is_currently_hidden = false
 	emit_signal("player_unhidden")
+
+func kill_by_env():
+	emit_signal("killed_by_env")

@@ -49,8 +49,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		%AnimatedSprite2D.play("idle")
 	
-	print(velocity, velocity > Vector2.ZERO)
-	
 	move_and_slide()
 
 func handle_random_movement(delta: float) -> void:
