@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://tynwkxdnypyc"]
+
+[sub_resource type="Gradient" id="Gradient_po0nb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Control"]
+position = Vector2(288, -162)
+amount = 300
+lifetime = 20.0
+emission_shape = 3
+emission_rect_extents = Vector2(350, 1)
+gravity = Vector2(0, 20)
+radial_accel_min = -1.0
+radial_accel_max = -1.0
+damping_min = 5.0
+damping_max = 5.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_po0nb")
