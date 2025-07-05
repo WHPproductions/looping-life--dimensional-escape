@@ -28,3 +28,7 @@ func _on_player_killed_by_env() -> void:
 	camera.reparent(player)
 	camera.position = Vector2(0,0)
 	add_child(player)
+
+
+func _on_kunci_player_in_area(kunci_value: String) -> void:
+	print("Player collected key with value: ", kunci_value)

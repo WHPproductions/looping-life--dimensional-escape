@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=50 format=3 uid="uid://hs3gptmr0gm1"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
@@ -6,10 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="3_aimj0"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
 [ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
+[ext_resource type="PackedScene" uid="uid://c7qroh4hncdsq" path="res://Scene/Object/kunci.tscn" id="5_4md47"]
 [ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="5_6qxnp"]
+[ext_resource type="Texture2D" uid="uid://bbq0uapmtw6bv" path="res://Asset/Terrain/Object/kunci_lapangan.png" id="6_efshx"]
 [ext_resource type="Texture2D" uid="uid://dm4384etyh236" path="res://Asset/Terrain/Object/DoorGudang.png" id="6_pm1jm"]
 [ext_resource type="Texture2D" uid="uid://cwsiwtvsweyp" path="res://Asset/Terrain/Object/DoorKantin.png" id="7_7sxw6"]
+[ext_resource type="Texture2D" uid="uid://br3bokqw2kjla" path="res://Asset/Terrain/Object/kunci_kantin.png" id="7_lrnoa"]
 [ext_resource type="Texture2D" uid="uid://b16ijp6sm120p" path="res://Asset/Terrain/Object/DoorLapang.png" id="8_7sxw6"]
+[ext_resource type="Texture2D" uid="uid://qj48cjud8o1u" path="res://Asset/Terrain/Object/kunci_gudang.png" id="8_a0n1j"]
 [ext_resource type="Texture2D" uid="uid://drlm56oamw1gj" path="res://Asset/Terrain/Object/DoorLapangKantin.png" id="9_m01w0"]
 [ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="10_wev5e"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
@@ -257,6 +261,21 @@ position = Vector2(1017, 604)
 position = Vector2(1017, 659)
 rotation = 3.14159
 
+[node name="Kunci" parent="Object" instance=ExtResource("5_4md47")]
+position = Vector2(381, 1051)
+kunci = "kunci_lapangan"
+texture = ExtResource("6_efshx")
+
+[node name="Kunci2" parent="Object" instance=ExtResource("5_4md47")]
+position = Vector2(428, 1026)
+kunci = "kunci_kantin"
+texture = ExtResource("7_lrnoa")
+
+[node name="Kunci3" parent="Object" instance=ExtResource("5_4md47")]
+position = Vector2(437, 1076)
+kunci = "kunci_gudang"
+texture = ExtResource("8_a0n1j")
+
 [node name="LingkaranSihir" type="Node2D" parent="Object"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/LingkaranSihir"]
@@ -448,3 +467,7 @@ unique_name_in_owner = true
 
 [node name="PlayerKilledByEnv" type="Timer" parent="Timers"]
 one_shot = true
+
+[connection signal="player_in_area" from="Object/Kunci" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/Kunci2" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/Kunci3" to="." method="_on_kunci_player_in_area"]
