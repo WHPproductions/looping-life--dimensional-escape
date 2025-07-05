@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func _on_listrik_area_body_entered(body: Node2D) -> void:
 	if body is Player:
+		$AudioTersengat.play()
 		body.kill_by_env()
 		$ListrikArea.queue_free()
 		$Listrik.stop()

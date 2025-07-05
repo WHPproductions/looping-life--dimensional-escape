@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfsaj8sygm80"]
+[gd_scene load_steps=9 format=3 uid="uid://dexqpoe8oi2s2"]
 
 [ext_resource type="Script" uid="uid://dm3o5yt6437pu" path="res://Scene/Object/spike.gd" id="1_k36me"]
 [ext_resource type="Texture2D" uid="uid://cil3kquad61p7" path="res://Asset/Terrain/Trap/Spikes.png" id="2_k36me"]
+[ext_resource type="AudioStream" uid="uid://d24m0uobsfib0" path="res://Asset/Sounds/spike_slashed_a.mp3" id="3_wl8ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wl8ch"]
 atlas = ExtResource("2_k36me")
@@ -46,6 +47,9 @@ frame_progress = 0.580848
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeArea"]
 shape = SubResource("RectangleShape2D_1hlxb")
+
+[node name="AudioSlashed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wl8ch")
 
 [connection signal="body_entered" from="SpikeArea" to="." method="_on_spike_area_body_entered"]
 [connection signal="body_exited" from="SpikeArea" to="." method="_on_spike_area_body_exited"]

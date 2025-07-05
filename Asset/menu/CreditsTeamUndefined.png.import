@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n5kxpsgpl57k"
-path="res://.godot/imported/menu karakter(revisi).png-def27f87cdef4fcc86fb5271faa15016.ctex"
+uid="uid://i7p771h4sxtd"
+path="res://.godot/imported/CreditsTeamUndefined.png-cc2f2be8ff822b7f160f2145b706acbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/menu/menu karakter(revisi).png"
-dest_files=["res://.godot/imported/menu karakter(revisi).png-def27f87cdef4fcc86fb5271faa15016.ctex"]
+source_file="res://Asset/menu/CreditsTeamUndefined.png"
+dest_files=["res://.godot/imported/CreditsTeamUndefined.png-cc2f2be8ff822b7f160f2145b706acbc.ctex"]
 
 [params]
 

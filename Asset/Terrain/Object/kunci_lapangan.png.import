@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brr5665udijhs"
-path="res://.godot/imported/Screenshot 2025-07-05 190755.png-e3df4565e0fb0c6b4aec3046c6dac504.ctex"
+uid="uid://bbq0uapmtw6bv"
+path="res://.godot/imported/kunci_lapangan.png-702bf1cdcc41d3f9ec2df1ec1a50392e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/menu/Screenshot 2025-07-05 190755.png"
-dest_files=["res://.godot/imported/Screenshot 2025-07-05 190755.png-e3df4565e0fb0c6b4aec3046c6dac504.ctex"]
+source_file="res://Asset/Terrain/Object/kunci_lapangan.png"
+dest_files=["res://.godot/imported/kunci_lapangan.png-702bf1cdcc41d3f9ec2df1ec1a50392e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i7p771h4sxtd"
-path="res://.godot/imported/credits IGG.png-c8d96b7ee854465cad4fe882f04b73d3.ctex"
+uid="uid://bn16w2dubqwt3"
+path="res://.godot/imported/light_mask.png-b9390a0bd79a2879db2d5b357d9fa7c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/menu/credits IGG.png"
-dest_files=["res://.godot/imported/credits IGG.png-c8d96b7ee854465cad4fe882f04b73d3.ctex"]
+source_file="res://Asset/Terrain/Object/light_mask.png"
+dest_files=["res://.godot/imported/light_mask.png-b9390a0bd79a2879db2d5b357d9fa7c0.ctex"]
 
 [params]
 
