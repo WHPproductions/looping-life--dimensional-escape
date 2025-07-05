@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=46 format=3 uid="uid://hs3gptmr0gm1"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="2_keov8"]
 [ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="3_aimj0"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
+[ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
 [ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="5_6qxnp"]
 [ext_resource type="Texture2D" uid="uid://dm4384etyh236" path="res://Asset/Terrain/Object/DoorGudang.png" id="6_pm1jm"]
 [ext_resource type="Texture2D" uid="uid://cwsiwtvsweyp" path="res://Asset/Terrain/Object/DoorKantin.png" id="7_7sxw6"]
@@ -248,6 +249,13 @@ position = Vector2(388, 1289)
 
 [node name="SpikeSecret" parent="Object" instance=ExtResource("14_2hwue")]
 position = Vector2(1106, 703)
+
+[node name="Listrik" parent="Object" instance=ExtResource("4_a2m77")]
+position = Vector2(1017, 604)
+
+[node name="Listrik2" parent="Object" instance=ExtResource("4_a2m77")]
+position = Vector2(1017, 659)
+rotation = 3.14159
 
 [node name="LingkaranSihir" type="Node2D" parent="Object"]
 

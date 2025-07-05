@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bb1nwks74tqtb"]
+
+[ext_resource type="Script" uid="uid://ur1iqu1n6as0" path="res://Scene/Object/listrik.gd" id="1_0abhw"]
+[ext_resource type="Texture2D" uid="uid://0adhgrm7wn8n" path="res://Asset/Terrain/Trap/Listrik.png" id="1_dl46v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0abhw"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(0, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11s5j"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(58, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx15u"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(116, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otavj"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(174, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wihsw"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(232, 0, 58, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mutuv"]
+atlas = ExtResource("1_dl46v")
+region = Rect2(290, 0, 58, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wihsw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0abhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11s5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx15u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wihsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mutuv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl46v"]
+size = Vector2(58, 56)
+
+[node name="Listrik" type="Node2D"]
+script = ExtResource("1_0abhw")
+
+[node name="Listrik" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wihsw")
+frame_progress = 0.0686515
+
+[node name="ListrikArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ListrikArea"]
+shape = SubResource("RectangleShape2D_dl46v")
+
+[connection signal="body_entered" from="ListrikArea" to="." method="_on_listrik_area_body_entered"]
+[connection signal="body_exited" from="ListrikArea" to="." method="_on_listrik_area_body_exited"]

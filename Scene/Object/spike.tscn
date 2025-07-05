@@ -1,31 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfsaj8sygm80"]
 
 [ext_resource type="Script" uid="uid://dm3o5yt6437pu" path="res://Scene/Object/spike.gd" id="1_k36me"]
-[ext_resource type="Texture2D" uid="uid://cil3kquad61p7" path="res://Asset/Terrain/Object/Spikes.png" id="2_wl8ch"]
+[ext_resource type="Texture2D" uid="uid://cil3kquad61p7" path="res://Asset/Terrain/Trap/Spikes.png" id="2_k36me"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7gkn"]
-atlas = ExtResource("2_wl8ch")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl8ch"]
+atlas = ExtResource("2_k36me")
 region = Rect2(0, 0, 26, 38)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f10iq"]
-atlas = ExtResource("2_wl8ch")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7gkn"]
+atlas = ExtResource("2_k36me")
 region = Rect2(26, 0, 26, 38)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6p2ms"]
-atlas = ExtResource("2_wl8ch")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f10iq"]
+atlas = ExtResource("2_k36me")
 region = Rect2(52, 0, 26, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l126p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wl8ch")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_n7gkn")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f10iq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6p2ms")
 }],
 "loop": true,
 "name": &"default",

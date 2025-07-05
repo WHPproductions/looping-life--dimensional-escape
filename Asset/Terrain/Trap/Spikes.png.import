@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cil3kquad61p7"
-path="res://.godot/imported/Spikes.png-322f877330424785213dc7b7dec0af5c.ctex"
+path="res://.godot/imported/Spikes.png-ec3fbb4de5f4b33b761d21280888cb93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Terrain/Object/Spikes.png"
-dest_files=["res://.godot/imported/Spikes.png-322f877330424785213dc7b7dec0af5c.ctex"]
+source_file="res://Asset/Terrain/Trap/Spikes.png"
+dest_files=["res://.godot/imported/Spikes.png-ec3fbb4de5f4b33b761d21280888cb93.ctex"]
 
 [params]
 
