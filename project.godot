@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Looping Life: Dimensional Escape"
+run/main_scene="uid://c7pa8egllq61x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,8 +23,13 @@ window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Looping Life- Dimensional Escape"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
