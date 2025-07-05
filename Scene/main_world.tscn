@@ -1,12 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=46 format=3 uid="uid://hs3gptmr0gm1"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="2_keov8"]
 [ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="3_aimj0"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
+[ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
 [ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="5_6qxnp"]
-[ext_resource type="Texture2D" uid="uid://cil3kquad61p7" path="res://Asset/Terrain/Object/Spikes.png" id="5_sk76q"]
 [ext_resource type="Texture2D" uid="uid://dm4384etyh236" path="res://Asset/Terrain/Object/DoorGudang.png" id="6_pm1jm"]
 [ext_resource type="Texture2D" uid="uid://cwsiwtvsweyp" path="res://Asset/Terrain/Object/DoorKantin.png" id="7_7sxw6"]
 [ext_resource type="Texture2D" uid="uid://b16ijp6sm120p" path="res://Asset/Terrain/Object/DoorLapang.png" id="8_7sxw6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="10_wev5e"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
+[ext_resource type="PackedScene" uid="uid://bfsaj8sygm80" path="res://Scene/Object/spike.tscn" id="14_2hwue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sk76q"]
 atlas = ExtResource("3_aimj0")
@@ -60,35 +61,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wev5e")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hwue"]
-atlas = ExtResource("5_sk76q")
-region = Rect2(0, 0, 26, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2m77"]
-atlas = ExtResource("5_sk76q")
-region = Rect2(26, 0, 26, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnhx8"]
-atlas = ExtResource("5_sk76q")
-region = Rect2(52, 0, 26, 38)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4md47"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hwue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a2m77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jnhx8")
 }],
 "loop": true,
 "name": &"default",
@@ -272,6 +244,19 @@ metadata/_edit_lock_ = true
 
 [node name="Object" type="Node2D" parent="."]
 
+[node name="SpikeKelas" parent="Object" instance=ExtResource("14_2hwue")]
+position = Vector2(388, 1289)
+
+[node name="SpikeSecret" parent="Object" instance=ExtResource("14_2hwue")]
+position = Vector2(1106, 703)
+
+[node name="Listrik" parent="Object" instance=ExtResource("4_a2m77")]
+position = Vector2(1017, 604)
+
+[node name="Listrik2" parent="Object" instance=ExtResource("4_a2m77")]
+position = Vector2(1017, 659)
+rotation = 3.14159
+
 [node name="LingkaranSihir" type="Node2D" parent="Object"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/LingkaranSihir"]
@@ -284,20 +269,6 @@ sprite_frames = SubResource("SpriteFrames_lbrl6")
 position = Vector2(1269, 1082)
 sprite_frames = SubResource("SpriteFrames_d2e8q")
 frame_progress = 0.986247
-
-[node name="Spike" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Spike"]
-position = Vector2(1108, 703)
-sprite_frames = SubResource("SpriteFrames_4md47")
-frame_progress = 0.0999589
-
-[node name="Spike2" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Spike2"]
-position = Vector2(388, 1291)
-sprite_frames = SubResource("SpriteFrames_4md47")
-frame_progress = 0.654564
 
 [node name="DoorGudang" type="Node2D" parent="Object"]
 

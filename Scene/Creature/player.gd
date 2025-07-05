@@ -62,10 +62,11 @@ func unhide_player() -> void:
 ## Bunuh player sama environment
 func kill_by_env() -> void:
 	player_dead = true
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.queue_free()
 	emit_signal("killed_by_env")
 
 ## Bunuh player sama Enemy
 func kill_by_enemy() -> void:
 	player_dead = true
+	$CollisionShape2D.queue_free()
 	emit_signal("killed_by_enemy")
