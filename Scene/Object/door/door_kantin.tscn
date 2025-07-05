@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfwgquu2q0pwj"]
+
+[ext_resource type="Script" uid="uid://cvedjbcniytjj" path="res://Scene/Object/door/door_kantin.gd" id="1_74620"]
+[ext_resource type="Texture2D" uid="uid://cwsiwtvsweyp" path="res://Asset/Terrain/Object/DoorKantin.png" id="1_umuua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74620"]
+atlas = ExtResource("1_umuua")
+region = Rect2(0, 0, 39, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwal"]
+atlas = ExtResource("1_umuua")
+region = Rect2(39, 0, 39, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boa7d"]
+atlas = ExtResource("1_umuua")
+region = Rect2(78, 0, 39, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf0v0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74620")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boa7d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dmun"]
+size = Vector2(12, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3chai"]
+size = Vector2(6, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74620"]
+size = Vector2(38, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hwal"]
+size = Vector2(38, 6)
+
+[node name="DoorKantin" type="Node2D"]
+script = ExtResource("1_74620")
+
+[node name="DoorKantin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xf0v0")
+
+[node name="DoorKantinArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorKantinArea"]
+position = Vector2(-16, -1)
+shape = SubResource("RectangleShape2D_8dmun")
+
+[node name="Blocking" type="StaticBody2D" parent="."]
+
+[node name="DoorKantinCollision" type="CollisionShape2D" parent="Blocking"]
+position = Vector2(-16, -1)
+shape = SubResource("RectangleShape2D_3chai")
+
+[node name="StaticCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(0, -22.5)
+shape = SubResource("RectangleShape2D_74620")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_7hwal")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="DoorKantinArea" to="." method="_on_door_kantin_area_body_entered"]

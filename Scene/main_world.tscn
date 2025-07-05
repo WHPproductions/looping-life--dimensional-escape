@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=27 format=3 uid="uid://bh1jhowe31p0a"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
@@ -6,19 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
 [ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
 [ext_resource type="PackedScene" uid="uid://c7qroh4hncdsq" path="res://Scene/Object/kunci.tscn" id="5_4md47"]
-[ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="5_6qxnp"]
 [ext_resource type="Texture2D" uid="uid://bbq0uapmtw6bv" path="res://Asset/Terrain/Object/kunci_lapangan.png" id="6_efshx"]
-[ext_resource type="Texture2D" uid="uid://dm4384etyh236" path="res://Asset/Terrain/Object/DoorGudang.png" id="6_pm1jm"]
-[ext_resource type="Texture2D" uid="uid://cwsiwtvsweyp" path="res://Asset/Terrain/Object/DoorKantin.png" id="7_7sxw6"]
 [ext_resource type="Texture2D" uid="uid://br3bokqw2kjla" path="res://Asset/Terrain/Object/kunci_kantin.png" id="7_lrnoa"]
-[ext_resource type="Texture2D" uid="uid://b16ijp6sm120p" path="res://Asset/Terrain/Object/DoorLapang.png" id="8_7sxw6"]
 [ext_resource type="Texture2D" uid="uid://qj48cjud8o1u" path="res://Asset/Terrain/Object/kunci_gudang.png" id="8_a0n1j"]
 [ext_resource type="PackedScene" uid="uid://bofn7ebhpfs3h" path="res://Scene/Object/lingkaran_sihir.tscn" id="9_lrnoa"]
-[ext_resource type="Texture2D" uid="uid://drlm56oamw1gj" path="res://Asset/Terrain/Object/DoorLapangKantin.png" id="9_m01w0"]
-[ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="10_wev5e"]
+[ext_resource type="PackedScene" uid="uid://ddnxfku1vshsk" path="res://Scene/Object/light.tscn" id="10_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
+[ext_resource type="PackedScene" uid="uid://cfd4qq3434n7i" path="res://Scene/Object/door/door_gudang.tscn" id="12_lrnoa"]
+[ext_resource type="PackedScene" uid="uid://cfwgquu2q0pwj" path="res://Scene/Object/door/door_kantin.tscn" id="13_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
 [ext_resource type="PackedScene" uid="uid://dexqpoe8oi2s2" path="res://Scene/Object/spike.tscn" id="14_2hwue"]
+[ext_resource type="PackedScene" uid="uid://fdjwwgfcds80" path="res://Scene/Object/door/door_lapang.tscn" id="14_lrnoa"]
+[ext_resource type="PackedScene" uid="uid://cijrskhxx4x80" path="res://Scene/Object/door/door_lapang_kantin.tscn" id="16_a0n1j"]
+[ext_resource type="PackedScene" uid="uid://bw4jt3v0tj4vv" path="res://Scene/Object/door/last_door.tscn" id="17_a0n1j"]
 [ext_resource type="AudioStream" uid="uid://dqnpakhfq3nm4" path="res://Asset/Sounds/scary_ambience.mp3" id="20_062ct"]
 [ext_resource type="PackedScene" uid="uid://b5lmclbtgw5j4" path="res://Scene/Scene_Dead/dead_scene.tscn" id="20_a0n1j"]
 
@@ -58,173 +58,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4md47"]
-atlas = ExtResource("6_pm1jm")
-region = Rect2(0, 0, 44, 63)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efshx"]
-atlas = ExtResource("6_pm1jm")
-region = Rect2(44, 0, 44, 63)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lrnoa"]
-atlas = ExtResource("6_pm1jm")
-region = Rect2(88, 0, 44, 63)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_a0n1j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4md47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efshx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lrnoa")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_062ct"]
-atlas = ExtResource("7_7sxw6")
-region = Rect2(0, 0, 39, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vev1i"]
-atlas = ExtResource("7_7sxw6")
-region = Rect2(39, 0, 39, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vddu"]
-atlas = ExtResource("7_7sxw6")
-region = Rect2(78, 0, 39, 75)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uvqeb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_062ct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vev1i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vddu")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0n1j"]
-atlas = ExtResource("8_7sxw6")
-region = Rect2(0, 0, 47, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvqeb"]
-atlas = ExtResource("8_7sxw6")
-region = Rect2(47, 0, 47, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltmb4"]
-atlas = ExtResource("8_7sxw6")
-region = Rect2(94, 0, 47, 92)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lkpu5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a0n1j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvqeb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ltmb4")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lkpu5"]
-atlas = ExtResource("9_m01w0")
-region = Rect2(0, 0, 65, 73)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7c2hf"]
-atlas = ExtResource("9_m01w0")
-region = Rect2(65, 0, 65, 73)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlfno"]
-atlas = ExtResource("9_m01w0")
-region = Rect2(130, 0, 65, 73)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_j4xkr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lkpu5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7c2hf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlfno")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4xkr"]
-atlas = ExtResource("10_wev5e")
-region = Rect2(0, 0, 108, 74)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tcqn"]
-atlas = ExtResource("10_wev5e")
-region = Rect2(108, 0, 108, 74)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pawis"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4xkr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6tcqn")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbrl6"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2e8q"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxve6"]
-atlas = ExtResource("5_6qxnp")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2hwue"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbrl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2e8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxve6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="main_world" type="Node2D"]
 script = ExtResource("1_d2e8q")
 
@@ -234,6 +67,10 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Object" type="Node2D" parent="."]
+
+[node name="LingkaranSihir" parent="Object" instance=ExtResource("9_lrnoa")]
+unique_name_in_owner = true
+position = Vector2(861, 1073)
 
 [node name="SpikeKelas" parent="Object" instance=ExtResource("14_2hwue")]
 position = Vector2(388, 1289)
@@ -248,23 +85,36 @@ position = Vector2(1017, 604)
 position = Vector2(1017, 659)
 rotation = 3.14159
 
-[node name="KunciLapangan" parent="Object" instance=ExtResource("5_4md47")]
+[node name="Kunci" type="Node2D" parent="Object"]
+
+[node name="KunciLapangan" parent="Object/Kunci" instance=ExtResource("5_4md47")]
 position = Vector2(618, 1341)
 kunci = "kunci_lapangan"
 texture = ExtResource("6_efshx")
 
-[node name="KunciKantin" parent="Object" instance=ExtResource("5_4md47")]
+[node name="KunciKantin" parent="Object/Kunci" instance=ExtResource("5_4md47")]
 position = Vector2(428, 1026)
 kunci = "kunci_kantin"
 texture = ExtResource("7_lrnoa")
 
-[node name="KunciGudang" parent="Object" instance=ExtResource("5_4md47")]
+[node name="KunciGudang" parent="Object/Kunci" instance=ExtResource("5_4md47")]
 position = Vector2(836, 663)
 kunci = "kunci_gudang"
 texture = ExtResource("8_a0n1j")
 
-[node name="LingkaranSihir" parent="Object" instance=ExtResource("9_lrnoa")]
-position = Vector2(861, 1073)
+[node name="Lights" type="Node2D" parent="Object"]
+
+[node name="LightKelas" parent="Object/Lights" instance=ExtResource("10_lrnoa")]
+position = Vector2(620, 1461)
+
+[node name="LightWC" parent="Object/Lights" instance=ExtResource("10_lrnoa")]
+position = Vector2(300, 542)
+
+[node name="LightGudang" parent="Object/Lights" instance=ExtResource("10_lrnoa")]
+position = Vector2(861, 226)
+
+[node name="LightLorong" parent="Object/Lights" instance=ExtResource("10_lrnoa")]
+position = Vector2(1176, 705)
 
 [node name="Portal" type="Node2D" parent="Object"]
 
@@ -273,61 +123,26 @@ position = Vector2(1269, 1082)
 sprite_frames = SubResource("SpriteFrames_d2e8q")
 frame_progress = 0.986247
 
-[node name="DoorGudang" type="Node2D" parent="Object"]
+[node name="DoorGudang" parent="Object" instance=ExtResource("12_lrnoa")]
+unique_name_in_owner = true
+position = Vector2(941, 342)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/DoorGudang"]
-position = Vector2(941, 343)
-sprite_frames = SubResource("SpriteFrames_a0n1j")
-
-[node name="DoorKantin" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/DoorKantin"]
+[node name="DoorKantin" parent="Object" instance=ExtResource("13_lrnoa")]
+unique_name_in_owner = true
 position = Vector2(596, 749.5)
-sprite_frames = SubResource("SpriteFrames_uvqeb")
 
-[node name="DoorLapangan" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/DoorLapangan"]
+[node name="DoorLapang" parent="Object" instance=ExtResource("14_lrnoa")]
+unique_name_in_owner = true
 position = Vector2(651, 1055)
-sprite_frames = SubResource("SpriteFrames_lkpu5")
 
-[node name="DoorLapanganKantin" type="Node2D" parent="Object"]
+[node name="DoorLapangKantin" parent="Object" instance=ExtResource("16_a0n1j")]
+unique_name_in_owner = true
+position = Vector2(741, 799)
+scale = Vector2(0.9, 0.9)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/DoorLapanganKantin"]
-position = Vector2(741.75, 800)
-scale = Vector2(0.9, 1.017)
-sprite_frames = SubResource("SpriteFrames_j4xkr")
-
-[node name="LastDoor" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/LastDoor"]
-position = Vector2(1185, 1068)
-sprite_frames = SubResource("SpriteFrames_pawis")
-
-[node name="Light" type="Node2D" parent="Object"]
-
-[node name="Class" type="Node2D" parent="Object/Light"]
-
-[node name="Bathroom" type="Node2D" parent="Object/Light"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Light/Bathroom"]
-position = Vector2(294, 549)
-sprite_frames = SubResource("SpriteFrames_2hwue")
-frame_progress = 0.15037
-
-[node name="Storage" type="Node2D" parent="Object/Light"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Light/Storage"]
-position = Vector2(860, 219)
-sprite_frames = SubResource("SpriteFrames_2hwue")
-frame_progress = 0.754875
-
-[node name="Secret" type="Node2D" parent="Object/Light"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Light/Secret"]
-position = Vector2(1177, 704)
-sprite_frames = SubResource("SpriteFrames_2hwue")
-frame_progress = 0.754875
+[node name="LastDoor" parent="Object" instance=ExtResource("17_a0n1j")]
+unique_name_in_owner = true
+position = Vector2(1184, 1068)
 
 [node name="Lokers" type="Node2D" parent="Object"]
 
@@ -454,10 +269,7 @@ unique_name_in_owner = true
 wait_time = 7.0
 one_shot = true
 
-[node name="SFX" type="Node" parent="."]
-unique_name_in_owner = true
-
-[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
+[node name="SFX#Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_062ct")
 volume_db = -10.0
 autoplay = true
@@ -466,7 +278,16 @@ parameters/looping = true
 [node name="DeadScene" parent="." instance=ExtResource("20_a0n1j")]
 unique_name_in_owner = true
 
-[connection signal="player_in_area" from="Object/KunciLapangan" to="." method="_on_kunci_player_in_area"]
-[connection signal="player_in_area" from="Object/KunciKantin" to="." method="_on_kunci_player_in_area"]
-[connection signal="player_in_area" from="Object/KunciGudang" to="." method="_on_kunci_player_in_area"]
 [connection signal="activated" from="Object/LingkaranSihir" to="." method="_on_lingkaran_sihir_activated"]
+[connection signal="player_in_area" from="Object/Kunci/KunciLapangan" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/Kunci/KunciKantin" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/Kunci/KunciGudang" to="." method="_on_kunci_player_in_area"]
+[connection signal="player_in_area" from="Object/Lights/LightKelas" to="." method="_on_light_player_in_area"]
+[connection signal="player_in_area" from="Object/Lights/LightWC" to="." method="_on_light_player_in_area"]
+[connection signal="player_in_area" from="Object/Lights/LightGudang" to="." method="_on_light_player_in_area"]
+[connection signal="player_in_area" from="Object/Lights/LightLorong" to="." method="_on_light_player_in_area"]
+[connection signal="player_in_area" from="Object/DoorGudang" to="." method="_on_door_gudang_player_in_area"]
+[connection signal="player_in_area" from="Object/DoorKantin" to="." method="_on_door_kantin_player_in_area"]
+[connection signal="player_in_area" from="Object/DoorLapang" to="." method="_on_door_lapang_player_in_area"]
+[connection signal="player_in_area" from="Object/DoorLapangKantin" to="." method="_on_door_lapang_kantin_player_in_area"]
+[connection signal="player_in_area" from="Object/LastDoor" to="." method="_on_last_door_player_in_area"]

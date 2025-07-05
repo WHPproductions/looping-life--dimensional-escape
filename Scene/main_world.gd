@@ -49,11 +49,36 @@ func _on_player_killed_by_enemy() -> void:
 func _on_kunci_player_in_area(kunci_value: String) -> void:
 	keys_inventory[kunci_value] = true
 
-
 # Nunggu signal dari Surya
-func on_light_player_in_area() -> void:
+# Answer: Sinyal dikirim...
+func _on_light_player_in_area() -> void:
 	light_inventory += 1
-
+	
+	#show cahaya di lingkaran sihir
+	%LingkaranSihir.increment_lights()
+	
+	#kill player, kata yusuf pas collect lightnya harus mati
+	player.kill_by_env()
 
 func _on_lingkaran_sihir_activated() -> void:
-	pass # Replace with function body.
+	$Object/LastDoor/LastDoorArea/CollisionShape2D.disabled = false
+
+func _on_last_door_player_in_area() -> void:
+	print("DETECTED")
+	%LastDoor.door_open()
+
+func _on_door_gudang_player_in_area() -> void:
+	if keys_inventory["kunci_gudang"]:
+		%DoorGudang.door_open()
+
+func _on_door_kantin_player_in_area() -> void:
+	if keys_inventory["kunci_kantin"]:
+		%DoorKantin.door_open()
+		
+func _on_door_lapang_player_in_area() -> void:
+	if keys_inventory["kunci_lapangan"]:
+		%DoorLapang.door_open()
+
+func _on_door_lapang_kantin_player_in_area() -> void:
+	if keys_inventory["kunci_kantin"]:
+		%DoorLapangKantin.door_open()

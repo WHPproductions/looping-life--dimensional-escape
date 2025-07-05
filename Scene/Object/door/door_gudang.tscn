@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfd4qq3434n7i"]
+
+[ext_resource type="Texture2D" uid="uid://dm4384etyh236" path="res://Asset/Terrain/Object/DoorGudang.png" id="1_pncie"]
+[ext_resource type="Script" uid="uid://vh28rcrinjmj" path="res://Scene/Object/door/door_gudang.gd" id="1_q7bo8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7bo8"]
+atlas = ExtResource("1_pncie")
+region = Rect2(0, 0, 44, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc0nn"]
+atlas = ExtResource("1_pncie")
+region = Rect2(44, 0, 44, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xul66"]
+atlas = ExtResource("1_pncie")
+region = Rect2(88, 0, 44, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7bo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc0nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xul66")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pncie"]
+size = Vector2(54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7bo8"]
+size = Vector2(42, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0nn"]
+size = Vector2(5, 44.5)
+
+[node name="DoorGudang" type="Node2D"]
+script = ExtResource("1_q7bo8")
+
+[node name="DoorGudang" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3nivr")
+
+[node name="DoorGudangArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorGudangArea"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_pncie")
+
+[node name="Blocking" type="StaticBody2D" parent="."]
+
+[node name="DoorGudangCollision" type="CollisionShape2D" parent="Blocking"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_q7bo8")
+
+[node name="StaticCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(-19.5, -9.25)
+shape = SubResource("RectangleShape2D_qc0nn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(19.5, -8.5)
+shape = SubResource("RectangleShape2D_qc0nn")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="DoorGudangArea" to="." method="_on_door_gudang_area_body_entered"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw4jt3v0tj4vv"]
+
+[ext_resource type="Script" uid="uid://mv02ljanhlat" path="res://Scene/Object/door/last_door.gd" id="1_0vf0c"]
+[ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="1_j5iq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vf0c"]
+atlas = ExtResource("1_j5iq7")
+region = Rect2(0, 0, 108, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4uc7"]
+atlas = ExtResource("1_j5iq7")
+region = Rect2(108, 0, 108, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar5in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vf0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4uc7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vf0c"]
+size = Vector2(37.75, 68.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ik5"]
+size = Vector2(11, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvyy5"]
+size = Vector2(74, 11)
+
+[node name="LastDoor" type="Node2D"]
+script = ExtResource("1_0vf0c")
+
+[node name="LastDoor" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ar5in")
+
+[node name="LastDoorArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LastDoorArea"]
+position = Vector2(-39.125, 6.75)
+shape = SubResource("RectangleShape2D_0vf0c")
+
+[node name="Blocking" type="StaticBody2D" parent="."]
+
+[node name="LastDoorCollision" type="CollisionShape2D" parent="Blocking"]
+position = Vector2(-14.5, 0)
+shape = SubResource("RectangleShape2D_h1ik5")
+
+[node name="StaticCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(17, 31.5)
+shape = SubResource("RectangleShape2D_gvyy5")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="LastDoorArea" to="." method="_on_last_door_area_body_entered"]

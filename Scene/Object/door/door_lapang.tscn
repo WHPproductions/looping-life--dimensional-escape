@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://fdjwwgfcds80"]
+
+[ext_resource type="Texture2D" uid="uid://b16ijp6sm120p" path="res://Asset/Terrain/Object/DoorLapang.png" id="1_n55vg"]
+[ext_resource type="Script" uid="uid://cpch0qgaibkkk" path="res://Scene/Object/door/door_lapang.gd" id="1_tbkd4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbkd4"]
+atlas = ExtResource("1_n55vg")
+region = Rect2(0, 0, 47, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1qoi"]
+atlas = ExtResource("1_n55vg")
+region = Rect2(47, 0, 47, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_284i5"]
+atlas = ExtResource("1_n55vg")
+region = Rect2(94, 0, 47, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jr1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbkd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1qoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_284i5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1bic"]
+size = Vector2(14, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giowr"]
+size = Vector2(8, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djnay"]
+size = Vector2(48, 30.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2q3o"]
+size = Vector2(47, 7)
+
+[node name="DoorLapang" type="Node2D"]
+script = ExtResource("1_tbkd4")
+
+[node name="DoorLapang" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5jr1h")
+
+[node name="DoorLapangArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLapangArea"]
+position = Vector2(-20, -1)
+shape = SubResource("RectangleShape2D_q1bic")
+
+[node name="Blocking" type="StaticBody2D" parent="."]
+
+[node name="DoorLapangCollision" type="CollisionShape2D" parent="Blocking"]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_giowr")
+
+[node name="StaticCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(0, -31.25)
+shape = SubResource("RectangleShape2D_djnay")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticCollision"]
+position = Vector2(-0.5, 42.5)
+shape = SubResource("RectangleShape2D_x2q3o")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="DoorLapangArea" to="." method="_on_door_lapang_area_body_entered"]

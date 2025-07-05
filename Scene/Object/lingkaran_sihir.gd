@@ -4,6 +4,12 @@ signal activated
 
 var lights: int = 0
 
+func _ready():
+	%fire1.play()
+	%fire2.play()
+	%fire3.play()
+	%fire4.play()
+
 func increment_lights():
 	lights += 1
 	match lights:

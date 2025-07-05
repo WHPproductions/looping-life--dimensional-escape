@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bofn7ebhpfs3h"]
+[gd_scene load_steps=18 format=3 uid="uid://bofn7ebhpfs3h"]
 
 [ext_resource type="Script" uid="uid://boml7t0xys8sa" path="res://Scene/Object/lingkaran_sihir.gd" id="1_nfj7g"]
 [ext_resource type="Texture2D" uid="uid://45kft6x3u7mb" path="res://Asset/Terrain/Object/lingkaran sihir.png" id="2_rcmwj"]
@@ -43,6 +43,35 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_drhv3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0n1j"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062ct"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vev1i"]
+atlas = ExtResource("3_wnla2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnla2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0n1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_062ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vev1i")
 }],
 "loop": true,
 "name": &"default",
@@ -105,6 +134,14 @@ color = Color(0, 0.611765, 0.560784, 1)
 energy = 15.64
 texture = ExtResource("4_hxrr5")
 
+[node name="fire1" type="AnimatedSprite2D" parent="AnimatedSprite2D/Cahaya/PointLight2D"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -500)
+scale = Vector2(27.4053, 116.431)
+sprite_frames = SubResource("SpriteFrames_wnla2")
+frame_progress = 0.567546
+
 [node name="Cahaya2" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(0, 60)
@@ -115,6 +152,14 @@ scale = Vector2(0.0433311, 0.0501016)
 color = Color(0, 0.611765, 0.560784, 1)
 energy = 15.64
 texture = ExtResource("4_hxrr5")
+
+[node name="fire2" type="AnimatedSprite2D" parent="AnimatedSprite2D/Cahaya2/PointLight2D"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -500)
+scale = Vector2(27.4053, 116.431)
+sprite_frames = SubResource("SpriteFrames_wnla2")
+frame_progress = 0.93836
 
 [node name="Cahaya3" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
@@ -127,6 +172,14 @@ color = Color(0, 0.611765, 0.560784, 1)
 energy = 15.64
 texture = ExtResource("4_hxrr5")
 
+[node name="fire3" type="AnimatedSprite2D" parent="AnimatedSprite2D/Cahaya3/PointLight2D"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -500)
+scale = Vector2(27.4053, 116.431)
+sprite_frames = SubResource("SpriteFrames_wnla2")
+frame_progress = 0.260798
+
 [node name="Cahaya4" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(0, -60)
@@ -137,6 +190,14 @@ scale = Vector2(0.0433311, 0.0501016)
 color = Color(0, 0.611765, 0.560784, 1)
 energy = 15.64
 texture = ExtResource("4_hxrr5")
+
+[node name="fire4" type="AnimatedSprite2D" parent="AnimatedSprite2D/Cahaya4/PointLight2D"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -500)
+scale = Vector2(27.4053, 116.431)
+sprite_frames = SubResource("SpriteFrames_wnla2")
+frame_progress = 0.260798
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rcmwj")

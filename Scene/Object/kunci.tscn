@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7qroh4hncdsq"]
 
-[ext_resource type="Script" path="res://Scene/Object/kunci.gd" id="1_ty4fu"]
+[ext_resource type="Script" uid="uid://c6wh2x6xepe4x" path="res://Scene/Object/kunci.gd" id="1_ty4fu"]
 [ext_resource type="Texture2D" uid="uid://bbq0uapmtw6bv" path="res://Asset/Terrain/Object/kunci_lapangan.png" id="2_53n2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81sok"]

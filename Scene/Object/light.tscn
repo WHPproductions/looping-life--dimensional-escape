@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddnxfku1vshsk"]
+
+[ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="1_3t1yb"]
+[ext_resource type="Script" uid="uid://rarnuomooeky" path="res://Scene/Object/light.gd" id="1_pmkcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmkcn"]
+atlas = ExtResource("1_3t1yb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi6f7"]
+atlas = ExtResource("1_3t1yb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy5ci"]
+atlas = ExtResource("1_3t1yb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3lgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmkcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi6f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy5ci")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t1yb"]
+size = Vector2(14, 14)
+
+[node name="Light" type="Node2D"]
+script = ExtResource("1_pmkcn")
+
+[node name="Light" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j3lgo")
+frame_progress = 0.517423
+
+[node name="LightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+shape = SubResource("RectangleShape2D_3t1yb")
+
+[connection signal="body_entered" from="LightArea" to="." method="_on_light_area_body_entered"]
