@@ -33,6 +33,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		$PlayerDetector/CollisionShape2D.disabled = false
 	
+	
+	
 	if (player 
 		and player_in_area
 		and can_see_player() 
@@ -48,6 +50,12 @@ func _physics_process(delta: float) -> void:
 		%AnimatedSprite2D.play("moving")
 	else:
 		%AnimatedSprite2D.play("idle")
+	
+	
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 	
 	move_and_slide()
 
