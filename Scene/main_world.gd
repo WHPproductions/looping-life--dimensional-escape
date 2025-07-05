@@ -1,8 +1,10 @@
 extends Node2D
 
 @onready var player: Player = %Player
+@onready var enemy: Enemy = %Enemy
 @onready var camera: Camera2D = %Camera
 @onready var dead = $Dead
+
 
 var keys_inventory: Dictionary = {
 	"kunci_lapangan" = false,
@@ -16,12 +18,11 @@ const PLAYER_INITIAL_POSITION = Vector2(200, 1020)
 func _ready() -> void:
 	# Mengkoneksi signal jika player mati
 	player.killed_by_env.connect(_on_player_killed_by_env)
-	player.killed_by_enemy.connect(_on_player_killed_by_enemy)
-
+	enemy.player_killed.connect(_on_player_killed_by_enemy)
 
 func _input(event: InputEvent) -> void:
 	
-	# kalau pencet backspace, bakal ngebunuh si player
+	# kalau pencet backspace, bakal ngebunuh si player. Buat debug
 	if event.is_action_pressed("ui_text_backspace") and OS.is_debug_build():
 		player.kill_by_env()
 
@@ -30,6 +31,8 @@ func _on_player_killed_by_env() -> void:
 	player = new_player.instantiate()
 	player.position = PLAYER_INITIAL_POSITION
 	player.killed_by_env.connect(_on_player_killed_by_env)
+	enemy.player_killed.connect(_on_player_killed_by_enemy)
+	%DeadScene.dead_by_object()
 	%Timers/PlayerKilledByEnv.start()
 	await $Timers/PlayerKilledByEnv.timeout
 	camera.reparent(player)
@@ -37,7 +40,10 @@ func _on_player_killed_by_env() -> void:
 	add_child(player)
 
 func _on_player_killed_by_enemy() -> void:
-	pass
+	player.player_dead = true
+	player.collision.queue_free()
+	$SFX/Ambience.playing = false
+	%DeadScene.dead_by_anomali()
 
 ## Player mengambil kunci
 func _on_kunci_player_in_area(kunci_value: String) -> void:

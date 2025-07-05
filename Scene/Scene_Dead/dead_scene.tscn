@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://xbh8lgv85uwh" path="res://Scene/Scene_Dead/dead.gd" id="1_dqlkg"]
 [ext_resource type="PackedScene" uid="uid://c5o2nmmnf78ee" path="res://Scene/Scene_Dead/heart.tscn" id="2_rwjfd"]
 
-[node name="Dead" type="CanvasLayer"]
+[node name="DeadScene" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_dqlkg")
 

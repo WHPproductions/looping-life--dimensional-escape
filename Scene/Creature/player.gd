@@ -5,7 +5,6 @@ extends CharacterBody2D
 signal player_hidden
 signal player_unhidden
 signal killed_by_env
-signal killed_by_enemy
 
 var input := Vector2.ZERO
 var played_dead_animation := false
@@ -13,6 +12,7 @@ var player_speed: int = 150
 var player_dead := false
 var is_currently_hidden := false
 
+@onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
@@ -62,11 +62,5 @@ func unhide_player() -> void:
 ## Bunuh player sama environment
 func kill_by_env() -> void:
 	player_dead = true
-	$CollisionShape2D.queue_free()
+	collision.queue_free()
 	emit_signal("killed_by_env")
-
-## Bunuh player sama Enemy
-func kill_by_enemy() -> void:
-	player_dead = true
-	$CollisionShape2D.queue_free()
-	emit_signal("killed_by_enemy")

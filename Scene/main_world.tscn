@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://hs3gptmr0gm1"]
+[gd_scene load_steps=50 format=3 uid="uid://hs3gptmr0gm1"]
 
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
 [ext_resource type="PackedScene" uid="uid://dexqpoe8oi2s2" path="res://Scene/Object/spike.tscn" id="14_2hwue"]
+[ext_resource type="AudioStream" uid="uid://dqnpakhfq3nm4" path="res://Asset/Sounds/scary_ambience.mp3" id="20_062ct"]
+[ext_resource type="PackedScene" uid="uid://b5lmclbtgw5j4" path="res://Scene/Scene_Dead/dead_scene.tscn" id="20_a0n1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm1jm"]
 atlas = ExtResource("4_6qxnp")
@@ -442,13 +444,27 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("13_sxve6")]
+unique_name_in_owner = true
 position = Vector2(746, 981)
 
 [node name="Timers" type="Node" parent="."]
 unique_name_in_owner = true
 
 [node name="PlayerKilledByEnv" type="Timer" parent="Timers"]
+wait_time = 7.0
 one_shot = true
+
+[node name="SFX" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("20_062ct")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="DeadScene" parent="." instance=ExtResource("20_a0n1j")]
+unique_name_in_owner = true
 
 [connection signal="player_in_area" from="Object/KunciLapangan" to="." method="_on_kunci_player_in_area"]
 [connection signal="player_in_area" from="Object/KunciKantin" to="." method="_on_kunci_player_in_area"]

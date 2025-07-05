@@ -1,6 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal player_killed
+
 enum State {
 	IDLE,
 	MOVING,
@@ -32,8 +34,6 @@ func _physics_process(delta: float) -> void:
 			return
 	else:
 		$PlayerDetector/CollisionShape2D.disabled = false
-	
-	
 	
 	if (player 
 		and player_in_area
@@ -116,4 +116,6 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 
 func _on_kill_player_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		pass
+		$AudioStreamPlayer2D.playing = false
+		%SFX/PlayerKilled.play()
+		emit_signal("player_killed")

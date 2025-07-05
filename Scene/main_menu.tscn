@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxwq8uupxx5gm"]
+[gd_scene load_steps=12 format=3 uid="uid://bxwq8uupxx5gm"]
 
 [ext_resource type="Script" uid="uid://d27eaxnq8enwh" path="res://Scene/main_menu.gd" id="1_kqsxi"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_hii65"]
 [ext_resource type="Texture2D" uid="uid://brr5665udijhs" path="res://Asset/menu/BackgroundMenu.png" id="2_pvidh"]
 [ext_resource type="Texture2D" uid="uid://n5kxpsgpl57k" path="res://Asset/menu/KarakterMenu.png" id="5_hptlk"]
 [ext_resource type="Texture2D" uid="uid://5bq24mda0mha" path="res://Asset/menu/ScreenTitle.png" id="5_pvidh"]
+[ext_resource type="AudioStream" uid="uid://d2ofkrm25yb2j" path="res://Asset/Sounds/menu_music.mp3" id="6_hptlk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hii65"]
 border_color = Color(0.876389, 0.77297, 0.762829, 1)
@@ -15,7 +16,65 @@ shadow_color = Color(0.114897, 0.114897, 0.114897, 0.6)
 shadow_size = 1
 shadow_offset = Vector2(0, 0.875)
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_oqads"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-14, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-21, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hptlk"]
+resource_name = "menu_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-14, -0.25, 0, 1.13333, 10, 0, -1.33333, -5, 1.36667, 12, 0, -1.13333, 12, 1.26667, -13, -14, -1.23333, 1, 1.35601, -13, -14, -1.14399, -12, 0.25, 0),
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-21, -0.25, 0, 0.25, 0, -21, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -21, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2f1d"]
+_data = {
+&"RESET": SubResource("Animation_oqads"),
+&"menu_animation": SubResource("Animation_hptlk")
+}
+
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,6 +167,17 @@ texture = ExtResource("5_hptlk")
 expand_mode = 1
 stretch_mode = 4
 flip_h = true
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hptlk")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s2f1d")
+}
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]

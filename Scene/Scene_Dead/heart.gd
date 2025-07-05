@@ -40,6 +40,7 @@ func shake_heart(intensity: int, time: float):
 	
 
 func dead_by_objects():
+	$GlassShatter.pitch_scale = randf_range(0.8, 1.3)
 	animation.play("dead_by_object")
 
 func dead_by_anomali():

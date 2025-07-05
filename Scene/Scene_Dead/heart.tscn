@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5o2nmmnf78ee"]
+[gd_scene load_steps=23 format=3 uid="uid://c5o2nmmnf78ee"]
 
 [ext_resource type="Script" uid="uid://fhi1jen1eg7l" path="res://Scene/Scene_Dead/heart.gd" id="1_g780t"]
 [ext_resource type="Texture2D" uid="uid://cd14g62b662et" path="res://Asset/Terrain/for animation/Heart.png" id="1_pvoe7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cdcdhture2oi" path="res://Asset/Terrain/for animation/muka anomali.png" id="4_lq1r6"]
 [ext_resource type="Texture2D" uid="uid://dsxx7oe8c7oiy" path="res://Asset/Terrain/for animation/genggam.png" id="5_0st84"]
 [ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="7_hw61o"]
+[ext_resource type="AudioStream" uid="uid://bgltsk6esrp2i" path="res://Asset/Sounds/glass_shattered.mp3" id="8_s50q0"]
+[ext_resource type="AudioStream" uid="uid://8rnylyikxjnw" path="res://Asset/Sounds/evil_demonic_laugh.mp3" id="9_x87k4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0st84"]
 atlas = ExtResource("2_2hroe")
@@ -211,6 +213,18 @@ tracks/12/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("GlassShatter:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_g780t"]
 resource_name = "dead_by_object"
@@ -287,9 +301,37 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0, 0.0, -4.88692]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GlassShatter:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s50q0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlassShatter:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kssdt"]
 _data = {
+&"RESET": SubResource("Animation_s50q0"),
 &"dead_by_alomani": SubResource("Animation_kssdt"),
 &"dead_by_object": SubResource("Animation_g780t")
 }
@@ -309,9 +351,37 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(18, 29.5), Vector2(18, -88.5), Vector2(18, -84), Vector2(18, -88.5), Vector2(18, -84)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EvilLaugh:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1s767"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EvilLaugh:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s50q0"]
 _data = {
+&"RESET": SubResource("Animation_1s767"),
 &"head": SubResource("Animation_lq1r6")
 }
 
@@ -391,6 +461,12 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Fade" parent="." instance=ExtResource("7_hw61o")]
+
+[node name="GlassShatter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_s50q0")
+
+[node name="EvilLaugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_x87k4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="head" to="." method="_on_head_animation_finished"]
