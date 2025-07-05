@@ -269,7 +269,9 @@ unique_name_in_owner = true
 wait_time = 7.0
 one_shot = true
 
-[node name="SFX#Ambience" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("20_062ct")
 volume_db = -10.0
 autoplay = true
