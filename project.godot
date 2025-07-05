@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Looping Life: Dimensional Escape"
-run/main_scene="uid://cywmtlv08byka"
+run/main_scene="uid://c7pa8egllq61x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

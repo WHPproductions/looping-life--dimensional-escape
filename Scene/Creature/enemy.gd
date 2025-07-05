@@ -43,6 +43,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		handle_random_movement(delta)
 	
+	# Play animation
+	if velocity != Vector2.ZERO:
+		%AnimatedSprite2D.play("moving")
+	else:
+		%AnimatedSprite2D.play("idle")
+	
+	print(velocity, velocity > Vector2.ZERO)
+	
 	move_and_slide()
 
 func handle_random_movement(delta: float) -> void:
@@ -98,3 +106,8 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = false
 		player = null
+
+
+func _on_kill_player_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		pass
