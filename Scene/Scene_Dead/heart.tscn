@@ -1,0 +1,397 @@
+[gd_scene load_steps=19 format=3 uid="uid://c5o2nmmnf78ee"]
+
+[ext_resource type="Script" uid="uid://fhi1jen1eg7l" path="res://Scene/Scene_Dead/heart.gd" id="1_g780t"]
+[ext_resource type="Texture2D" uid="uid://cd14g62b662et" path="res://Asset/Terrain/for animation/Heart.png" id="1_pvoe7"]
+[ext_resource type="Texture2D" uid="uid://c5h7gvo7elrrn" path="res://Asset/Terrain/for animation/tangan alomani.png" id="2_2hroe"]
+[ext_resource type="Texture2D" uid="uid://b5mivbjbg13wh" path="res://Asset/Terrain/for animation/reverse.png" id="3_kssdt"]
+[ext_resource type="Texture2D" uid="uid://cdcdhture2oi" path="res://Asset/Terrain/for animation/muka anomali.png" id="4_lq1r6"]
+[ext_resource type="Texture2D" uid="uid://dsxx7oe8c7oiy" path="res://Asset/Terrain/for animation/genggam.png" id="5_0st84"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="7_hw61o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0st84"]
+atlas = ExtResource("2_2hroe")
+region = Rect2(0, 0, 39, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq1r6"]
+atlas = ExtResource("2_2hroe")
+region = Rect2(39, 0, 39, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kssdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0st84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq1r6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2s3h"]
+atlas = ExtResource("1_pvoe7")
+region = Rect2(0, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkx3g"]
+atlas = ExtResource("1_pvoe7")
+region = Rect2(20, 0, 20, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g780t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2s3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkx3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_g780t"]
+resource_name = "dead_by_object"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(256, 160), Vector2(256, 160), Vector2(156, 200), Vector2(156, 200), Vector2(256, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(316, 160), Vector2(316, 160), Vector2(416, 200), Vector2(416, 200), Vector2(316, 160)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Left:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1.39626, -1.39626, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.39626, 1.39626, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Reverse:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3, 4.06667, 5.48, 6.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Reverse:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.06667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -4.88692]
+}
+
+[sub_resource type="Animation" id="Animation_kssdt"]
+resource_name = "dead_by_alomani"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(256, 160), Vector2(256, 160), Vector2(156, 200), Vector2(156, 200), Vector2(256, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(316, 160), Vector2(316, 160), Vector2(416, 200), Vector2(416, 200), Vector2(316, 160)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Left:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1.39626, -1.39626, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.7, 4.16667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.39626, 1.39626, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Reverse:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3, 4.06667, 5.48, 6.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Reverse:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.06667, 5.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -4.88692]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Alomani:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(216, 528), Vector2(216, 528), Vector2(216, 378)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Alomani/kiri:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 4.06667, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-38, -4), Vector2(-38, -4), Vector2(-6, -36.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Alomani/kiri/kiri:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Left/left:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Right/right:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Alomani/kanan:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 4.05, 5.02),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(74, -4), Vector2(74, -4), Vector2(40, -36.5)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Alomani/kanan/kanan:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 4.92),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kssdt"]
+_data = {
+&"dead_by_alomani": SubResource("Animation_kssdt"),
+&"dead_by_object": SubResource("Animation_g780t")
+}
+
+[sub_resource type="Animation" id="Animation_lq1r6"]
+resource_name = "head"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alomani/kepala:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.2, 3.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, 29.5), Vector2(18, -88.5), Vector2(18, -84), Vector2(18, -88.5), Vector2(18, -84)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s50q0"]
+_data = {
+&"head": SubResource("Animation_lq1r6")
+}
+
+[node name="heart" type="Node2D"]
+script = ExtResource("1_g780t")
+
+[node name="Reverse" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(288, 160)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Reverse"]
+texture = ExtResource("3_kssdt")
+
+[node name="Alomani" type="Node2D" parent="."]
+position = Vector2(216, 528)
+scale = Vector2(4, 4)
+
+[node name="kepala" type="Node2D" parent="Alomani"]
+position = Vector2(18, 29.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Alomani/kepala"]
+texture = ExtResource("4_lq1r6")
+
+[node name="kiri" type="Node2D" parent="Alomani"]
+position = Vector2(-38, -4)
+rotation = 0.621337
+
+[node name="kiri" type="AnimatedSprite2D" parent="Alomani/kiri"]
+sprite_frames = SubResource("SpriteFrames_kssdt")
+
+[node name="kanan" type="Node2D" parent="Alomani"]
+position = Vector2(74, -4)
+rotation = -0.621337
+
+[node name="kanan" type="AnimatedSprite2D" parent="Alomani/kanan"]
+sprite_frames = SubResource("SpriteFrames_kssdt")
+flip_h = true
+
+[node name="Left" type="Node2D" parent="."]
+position = Vector2(256, 160)
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
+sprite_frames = SubResource("SpriteFrames_g780t")
+
+[node name="left" type="Sprite2D" parent="Left"]
+visible = false
+texture = ExtResource("5_0st84")
+
+[node name="Right" type="Node2D" parent="."]
+position = Vector2(316, 160)
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Right"]
+sprite_frames = SubResource("SpriteFrames_g780t")
+frame = 1
+
+[node name="right" type="Sprite2D" parent="Right"]
+visible = false
+position = Vector2(-1, -2)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_0st84")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kssdt")
+}
+
+[node name="head" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s50q0")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Fade" parent="." instance=ExtResource("7_hw61o")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="head" to="." method="_on_head_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

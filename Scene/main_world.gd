@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player: Player = %Player
 @onready var camera: Camera2D = %Camera
+@onready var dead = $Dead
 
 const PLAYER_INITIAL_POSITION = Vector2(200, 1020)
 

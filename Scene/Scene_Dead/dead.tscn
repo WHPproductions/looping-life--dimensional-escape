@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5lmclbtgw5j4"]
+
+[ext_resource type="Script" uid="uid://xbh8lgv85uwh" path="res://Scene/Scene_Dead/dead.gd" id="1_dqlkg"]
+[ext_resource type="PackedScene" uid="uid://c5o2nmmnf78ee" path="res://Scene/Scene_Dead/heart.tscn" id="2_rwjfd"]
+
+[node name="Dead" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_dqlkg")
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -280.0
+offset_right = 472.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.866667)
+
+[node name="heart" parent="." instance=ExtResource("2_rwjfd")]
