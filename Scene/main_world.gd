@@ -61,11 +61,9 @@ func _on_light_player_in_area() -> void:
 	player.kill_by_env()
 
 func _on_lingkaran_sihir_activated() -> void:
-	$Object/LastDoor/LastDoorArea/CollisionShape2D.disabled = false
-
-func _on_last_door_player_in_area() -> void:
-	print("DETECTED")
-	%LastDoor.door_open()
+	pass
+	#uncomment untuk membuka pintu terakhir
+	#%LastDoor.door_open()
 
 func _on_door_gudang_player_in_area() -> void:
 	if keys_inventory["kunci_gudang"]:
