@@ -92,7 +92,6 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Object" type="Node2D" parent="."]
@@ -190,6 +189,7 @@ position = Vector2(1027, 421)
 position = Vector2(172, 493)
 
 [node name="Collisions" type="Node2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="map" type="StaticBody2D" parent="Collisions"]
