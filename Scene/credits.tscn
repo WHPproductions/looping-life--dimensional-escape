@@ -10,6 +10,21 @@ bg_color = Color(0.144063, 0.144063, 0.144062, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pb5xx"]
 texture = ExtResource("1_3hbp5")
 
+[sub_resource type="Animation" id="Animation_wofek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 37)]
+}
+
 [sub_resource type="Animation" id="Animation_3rv14"]
 resource_name = "credits_animation"
 length = 2.0
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(138, 37), Vector2(138, 40), Vector2(138, 37)]
-}
-
-[sub_resource type="Animation" id="Animation_wofek"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Credits:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(138, 37)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pb5xx"]

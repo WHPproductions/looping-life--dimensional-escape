@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bk1m21gh7p2y0" path="res://Scene/Creature/player.tscn" id="1_2av1i"]
 [ext_resource type="Script" uid="uid://cd7j6nlmhw06d" path="res://Scene/main_world.gd" id="1_d2e8q"]
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="2_keov8"]
-[ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="4_6qxnp"]
 [ext_resource type="PackedScene" uid="uid://bb1nwks74tqtb" path="res://Scene/Object/listrik.tscn" id="4_a2m77"]
 [ext_resource type="PackedScene" uid="uid://c7qroh4hncdsq" path="res://Scene/Object/kunci.tscn" id="5_4md47"]
 [ext_resource type="Texture2D" uid="uid://bbq0uapmtw6bv" path="res://Asset/Terrain/Object/kunci_lapangan.png" id="6_efshx"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bofn7ebhpfs3h" path="res://Scene/Object/lingkaran_sihir.tscn" id="9_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://ddnxfku1vshsk" path="res://Scene/Object/light.tscn" id="10_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
+[ext_resource type="PackedScene" uid="uid://bxn4vkt7kyt4j" path="res://Scene/Object/portal.tscn" id="11_ltmb4"]
 [ext_resource type="PackedScene" uid="uid://cfd4qq3434n7i" path="res://Scene/Object/door/door_gudang.tscn" id="12_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://cfwgquu2q0pwj" path="res://Scene/Object/door/door_kantin.tscn" id="13_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
@@ -19,52 +19,24 @@
 [ext_resource type="PackedScene" uid="uid://fdjwwgfcds80" path="res://Scene/Object/door/door_lapang.tscn" id="14_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://cijrskhxx4x80" path="res://Scene/Object/door/door_lapang_kantin.tscn" id="16_a0n1j"]
 [ext_resource type="PackedScene" uid="uid://bw4jt3v0tj4vv" path="res://Scene/Object/door/last_door.tscn" id="17_a0n1j"]
+[ext_resource type="Texture2D" uid="uid://bn16w2dubqwt3" path="res://Asset/Terrain/Object/light_mask.png" id="19_ltmb4"]
 [ext_resource type="AudioStream" uid="uid://dqnpakhfq3nm4" path="res://Asset/Sounds/scary_ambience.mp3" id="20_062ct"]
 [ext_resource type="PackedScene" uid="uid://b5lmclbtgw5j4" path="res://Scene/Scene_Dead/dead_scene.tscn" id="20_a0n1j"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pm1jm"]
-atlas = ExtResource("4_6qxnp")
-region = Rect2(0, 0, 57, 84)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7sxw6"]
-atlas = ExtResource("4_6qxnp")
-region = Rect2(57, 0, 57, 84)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m01w0"]
-atlas = ExtResource("4_6qxnp")
-region = Rect2(114, 0, 57, 84)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wev5e"]
-atlas = ExtResource("4_6qxnp")
-region = Rect2(171, 0, 57, 84)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d2e8q"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pm1jm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7sxw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m01w0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wev5e")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="AudioStream" uid="uid://dmxnvibsdqy5s" path="res://Asset/Sounds/door_open.mp3" id="21_vev1i"]
+[ext_resource type="AudioStream" uid="uid://sh3qhb1ftjud" path="res://Asset/Sounds/light_picked.mp3" id="22_8vddu"]
+[ext_resource type="AudioStream" uid="uid://c26mhrhdl1cl" path="res://Asset/Sounds/item_pickup.mp3" id="23_uvqeb"]
+[ext_resource type="PackedScene" uid="uid://bk3kqvy6tbwwv" path="res://Scene/Object/crying_child.tscn" id="26_lkpu5"]
 
 [node name="main_world" type="Node2D"]
 script = ExtResource("1_d2e8q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Map" type="Sprite2D" parent="."]
 texture = ExtResource("2_keov8")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [node name="Object" type="Node2D" parent="."]
 
@@ -116,12 +88,8 @@ position = Vector2(861, 226)
 [node name="LightLorong" parent="Object/Lights" instance=ExtResource("10_lrnoa")]
 position = Vector2(1176, 705)
 
-[node name="Portal" type="Node2D" parent="Object"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Object/Portal"]
-position = Vector2(1269, 1082)
-sprite_frames = SubResource("SpriteFrames_d2e8q")
-frame_progress = 0.986247
+[node name="Portal" parent="Object" instance=ExtResource("11_ltmb4")]
+position = Vector2(1267, 1073)
 
 [node name="DoorGudang" parent="Object" instance=ExtResource("12_lrnoa")]
 unique_name_in_owner = true
@@ -160,6 +128,9 @@ position = Vector2(331, 1316)
 
 [node name="LokerGudang" parent="Object/Lokers" instance=ExtResource("11_d2e8q")]
 position = Vector2(1027, 421)
+
+[node name="CryingChild" parent="Object" instance=ExtResource("26_lkpu5")]
+position = Vector2(172, 493)
 
 [node name="Collisions" type="Node2D" parent="."]
 visible = false
@@ -252,21 +223,36 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_2av1i")]
 unique_name_in_owner = true
 position = Vector2(200, 1020)
+motion_mode = 1
 
 [node name="Camera" type="Camera2D" parent="Player"]
 unique_name_in_owner = true
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
+[node name="Flashlight" type="PointLight2D" parent="Player"]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.096)
+energy = 6.33
+texture = ExtResource("19_ltmb4")
+
 [node name="Enemy" parent="." instance=ExtResource("13_sxve6")]
 unique_name_in_owner = true
-position = Vector2(746, 981)
+position = Vector2(658, 466)
 
 [node name="Timers" type="Node" parent="."]
 unique_name_in_owner = true
 
 [node name="PlayerKilledByEnv" type="Timer" parent="Timers"]
 wait_time = 7.0
+one_shot = true
+
+[node name="PlayerCollectedLight" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="PlayerJumpscared" type="Timer" parent="Timers"]
+wait_time = 5.0
 one_shot = true
 
 [node name="SFX" type="Node" parent="."]
@@ -276,6 +262,15 @@ stream = ExtResource("20_062ct")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="DoorOpened" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("21_vev1i")
+
+[node name="LightObtained" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("22_8vddu")
+
+[node name="KeyObtained" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("23_uvqeb")
 
 [node name="DeadScene" parent="." instance=ExtResource("20_a0n1j")]
 unique_name_in_owner = true
@@ -293,3 +288,4 @@ unique_name_in_owner = true
 [connection signal="player_in_area" from="Object/DoorLapang" to="." method="_on_door_lapang_player_in_area"]
 [connection signal="player_in_area" from="Object/DoorLapangKantin" to="." method="_on_door_lapang_kantin_player_in_area"]
 [connection signal="player_in_area" from="Object/LastDoor" to="." method="_on_last_door_player_in_area"]
+[connection signal="player_touched_child" from="Object/CryingChild" to="." method="_on_crying_child_player_touched_child"]

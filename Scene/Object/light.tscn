@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddnxfku1vshsk"]
+[gd_scene load_steps=9 format=3 uid="uid://ddnxfku1vshsk"]
 
 [ext_resource type="Texture2D" uid="uid://m2xnn3pgwn6d" path="res://Asset/Terrain/Object/Light.png" id="1_3t1yb"]
 [ext_resource type="Script" uid="uid://rarnuomooeky" path="res://Scene/Object/light.gd" id="1_pmkcn"]
+[ext_resource type="Texture2D" uid="uid://bn16w2dubqwt3" path="res://Asset/Terrain/Object/light_mask.png" id="3_vi6f7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmkcn"]
 atlas = ExtResource("1_3t1yb")
@@ -46,5 +47,11 @@ frame_progress = 0.517423
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
 shape = SubResource("RectangleShape2D_3t1yb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.0433311, 0.0501016)
+color = Color(0, 0.611765, 0.560784, 1)
+energy = 10.0
+texture = ExtResource("3_vi6f7")
 
 [connection signal="body_entered" from="LightArea" to="." method="_on_light_area_body_entered"]

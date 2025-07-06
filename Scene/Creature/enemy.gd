@@ -116,6 +116,7 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 
 func _on_kill_player_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		$AudioStreamPlayer2D.playing = false
-		%SFX/PlayerKilled.play()
-		emit_signal("player_killed")
+		if not body.is_currently_hidden:
+			$AudioStreamPlayer2D.playing = false
+			%SFX/PlayerKilled.play()
+			emit_signal("player_killed")

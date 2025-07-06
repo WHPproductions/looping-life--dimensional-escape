@@ -10,7 +10,8 @@ func _ready() -> void:
 
 func _on_light_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		emit_signal("player_in_area")
+		#emit_signal("player_in_area")
+		body.kill_by_light()
 		$LightArea.queue_free()
 		$Light.stop()
 		$Light.visible = false

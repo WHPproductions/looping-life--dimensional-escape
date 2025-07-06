@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cywmtlv08byka"]
+[gd_scene load_steps=5 format=3 uid="uid://cywmtlv08byka"]
 
 [ext_resource type="PackedScene" uid="uid://tynwkxdnypyc" path="res://background.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://bsp772cqksqfo" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bh1jhowe31p0a" path="res://Scene/main_world.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://btng1c34g8fbk" path="res://Scene/game_ui.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_fc0e3")
 
 [node name="Background" parent="." instance=ExtResource("1_e2o6t")]
 
 [node name="main_world" parent="." instance=ExtResource("2_feb5d")]
+
+[node name="GameUI" parent="." instance=ExtResource("3_feb5d")]
+
+[connection signal="adegan_awal" from="main_world" to="." method="_on_main_world_adegan_awal"]
+[connection signal="koleksi_light_pertama" from="main_world" to="." method="_on_main_world_koleksi_light_pertama"]
+[connection signal="lingkaran_sudah_aktivasi_dan_player_bundir" from="main_world" to="." method="_on_main_world_lingkaran_sudah_aktivasi_dan_player_bundir"]
+[connection signal="lingkaran_teraktivasi" from="main_world" to="." method="_on_main_world_lingkaran_teraktivasi"]
+[connection signal="terbunuh_pertama" from="main_world" to="." method="_on_main_world_terbunuh_pertama"]

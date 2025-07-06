@@ -15,5 +15,5 @@ func door_open():
 	$StaticCollision.collision_layer = 1  #enable collision
 
 func _on_last_door_area_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body is Player:
 		emit_signal("player_in_area") 

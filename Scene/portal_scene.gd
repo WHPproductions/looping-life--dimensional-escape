@@ -5,4 +5,4 @@ extends Node2D
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	fade.fade("res://Scene/main_menu.tscn")
+	fade.fade("res://Scene/credits.tscn")
