@@ -1,10 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmrngvcc8dm2o"]
+[gd_scene load_steps=7 format=3 uid="uid://dflns36clkuww"]
 
+[ext_resource type="Script" uid="uid://c31k172fyf8a6" path="res://Scene/jumpscare.gd" id="1_cmair"]
 [ext_resource type="Texture2D" uid="uid://crrxs5n41wcqw" path="res://Asset/Terrain/for animation/jumpscare.png" id="1_njd42"]
+[ext_resource type="AudioStream" uid="uid://bps25dnmf57l3" path="res://Asset/Sounds/woman_scream.mp3" id="2_3kggy"]
+
+[sub_resource type="Animation" id="Animation_cmair"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_njd42"]
 resource_name = "jumpscare"
-length = 2.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,13 +34,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(287, 498), Vector2(287, 200), Vector2(287, 200), Vector2(287, 498)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3kggy"]
 _data = {
+&"RESET": SubResource("Animation_cmair"),
 &"jumpscare": SubResource("Animation_njd42")
 }
 
 [node name="jumpscare" type="CanvasLayer"]
+script = ExtResource("1_cmair")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.831373)
 
 [node name="jumpscare" type="Node2D" parent="."]
 position = Vector2(287, 498)
@@ -37,3 +76,8 @@ root_node = NodePath("../jumpscare")
 libraries = {
 &"": SubResource("AnimationLibrary_3kggy")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3kggy")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

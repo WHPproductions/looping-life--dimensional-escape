@@ -5,6 +5,7 @@ extends CharacterBody2D
 signal player_hidden
 signal player_unhidden
 signal killed_by_env
+signal killed_by_light
 
 var input := Vector2.ZERO
 var played_dead_animation := false
@@ -20,6 +21,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var input_vector: Vector2 = get_input()
+	
+	
 	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * player_speed
@@ -64,3 +67,9 @@ func kill_by_env() -> void:
 	player_dead = true
 	collision.queue_free()
 	emit_signal("killed_by_env")
+
+## Tebunuh karena mengoleksi light
+func kill_by_light() -> void:
+	player_dead = true
+	collision.queue_free()
+	emit_signal("killed_by_light")

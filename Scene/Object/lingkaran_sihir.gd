@@ -14,16 +14,22 @@ func increment_lights():
 	lights += 1
 	match lights:
 		1:
-			$AnimatedSprite2D/Cahaya.visible = true
-			$AnimatedSprite2D/Cahaya.play("default")
+			%AnimationPlayer.play("light_1_collected")
 		2:
-			$AnimatedSprite2D/Cahaya2.visible = true
-			$AnimatedSprite2D/Cahaya2.play("default")
+			%AnimationPlayer.play("light_2_collected")
 		3:
-			$AnimatedSprite2D/Cahaya3.visible = true
-			$AnimatedSprite2D/Cahaya3.play("default")
+			%AnimationPlayer.play("light_3_collected")
 		4:
-			$AnimatedSprite2D/Cahaya4.visible = true
-			$AnimatedSprite2D/Cahaya4.play("default")
-			$AnimationPlayer.play("activated")
-			emit_signal("activated")
+			%AnimationPlayer.play("light_4_collected")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if lights >= 4:
+			activate()
+
+
+func activate():
+		$SFX/Activated.play()
+		$AnimationPlayer.play("activated")
+		emit_signal("activated")

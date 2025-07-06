@@ -1,10 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://05wsutnc0n8i"]
+[gd_scene load_steps=29 format=3 uid="uid://b6dua7h7081ji"]
 
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="1_aflf8"]
 [ext_resource type="Script" uid="uid://bar6sn1cj5dfn" path="res://Scene/portal_scene.gd" id="1_j1rfa"]
 [ext_resource type="Texture2D" uid="uid://fts5ts2ripi0" path="res://Asset/Creature/player.png" id="2_lpywo"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="3_5h6wl"]
 [ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="4_un8ry"]
+[ext_resource type="AudioStream" uid="uid://cuhhjlagph3be" path="res://Asset/Sounds/hearbeat.mp3" id="6_s6gd1"]
+[ext_resource type="AudioStream" uid="uid://cdmei6ynj2vhu" path="res://Asset/Sounds/portal_wrap.mp3" id="7_avb2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xgdln"]
 atlas = ExtResource("3_5h6wl")
@@ -139,6 +141,69 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_5h6wl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node/Heartbeat:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node/Warp:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node/Warp:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
 [sub_resource type="Animation" id="Animation_lpywo"]
 resource_name = "portal"
 length = 13.0
@@ -202,32 +267,41 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0, 0.0, 6.28319]
 }
-
-[sub_resource type="Animation" id="Animation_5h6wl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("map:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node/Heartbeat:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Node/Warp:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node/Warp:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8.20206, 13),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [-30.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5h6wl"]
@@ -252,21 +326,15 @@ autoplay = "default"
 frame_progress = 0.809933
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(216, 161)
+position = Vector2(306, 155)
+scale = Vector2(1e-05, 1e-05)
 
 [node name="Player" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_xgdln")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.509146
 
 [node name="Camera2D" type="Camera2D" parent="Player/Player"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5h6wl")
-}
-autoplay = "portal"
 
 [node name="Fade" parent="." instance=ExtResource("4_un8ry")]
 
@@ -287,5 +355,20 @@ offset_top = -288.0
 offset_right = 749.0
 offset_bottom = 41.0
 color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5h6wl")
+}
+autoplay = "portal"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("6_s6gd1")
+
+[node name="Warp" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("7_avb2i")
+volume_db = -80.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxwq8uupxx5gm"]
+[gd_scene load_steps=13 format=3 uid="uid://bxwq8uupxx5gm"]
 
 [ext_resource type="Script" uid="uid://d27eaxnq8enwh" path="res://Scene/main_menu.gd" id="1_kqsxi"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_hii65"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://n5kxpsgpl57k" path="res://Asset/menu/KarakterMenu.png" id="5_hptlk"]
 [ext_resource type="Texture2D" uid="uid://5bq24mda0mha" path="res://Asset/menu/ScreenTitle.png" id="5_pvidh"]
 [ext_resource type="AudioStream" uid="uid://d2ofkrm25yb2j" path="res://Asset/Sounds/menu_music.mp3" id="6_hptlk"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="7_oqads"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hii65"]
 border_color = Color(0.876389, 0.77297, 0.762829, 1)
@@ -117,6 +118,7 @@ theme_override_constants/separation = 16
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_hover_pressed_color = Color(0.133196, 0.133196, 0.133196, 1)
 theme_override_fonts/font = ExtResource("2_hii65")
 theme_override_font_sizes/font_size = 29
@@ -129,6 +131,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_hii65")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_87ipw")
@@ -138,6 +141,7 @@ alignment = 0
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_hii65")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_87ipw")
@@ -178,6 +182,8 @@ parameters/looping = true
 libraries = {
 &"": SubResource("AnimationLibrary_s2f1d")
 }
+
+[node name="Fade" parent="." instance=ExtResource("7_oqads")]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]
