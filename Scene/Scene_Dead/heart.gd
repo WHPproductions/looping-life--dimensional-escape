@@ -53,7 +53,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_head_animation_finished(anim_name: StringName) -> void:
-	fade.fade("res://Scene/main_menu.tscn")
+	fade.fade("res://Scene/game_over.tscn")
 
 
 func _on_timer_timeout() -> void:

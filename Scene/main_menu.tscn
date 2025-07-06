@@ -19,54 +19,34 @@ shadow_offset = Vector2(0, 0.875)
 
 [sub_resource type="Animation" id="Animation_oqads"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:position:x")
+tracks/0/path = NodePath("Background:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-14, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-21, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(312, 184)]
 }
 
 [sub_resource type="Animation" id="Animation_hptlk"]
 resource_name = "menu_animation"
-length = 10.0
+length = 12.0
 loop_mode = 1
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:position:x")
+tracks/0/path = NodePath("Background:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-14, -0.25, 0, 1.13333, 10, 0, -1.33333, -5, 1.36667, 12, 0, -1.13333, 12, 1.26667, -13, -14, -1.23333, 1, 1.35601, -13, -14, -1.14399, -12, 0.25, 0),
-"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-21, -0.25, 0, 0.25, 0, -21, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -21, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10)
+"times": PackedFloat32Array(0, 3, 6, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(280, 160), Vector2(296, 176), Vector2(272, 200), Vector2(256, 168)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2f1d"]
@@ -97,20 +77,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kqsxi")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.552956, 0.552956, 0.552956, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -14.0
-offset_top = -21.0
-offset_right = 23.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
+position = Vector2(312, 184)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_pvidh")
-expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
