@@ -24,4 +24,5 @@ func display_text(text: String) -> void:
 	while %TopLabel.visible_characters < %TopLabel.get_total_character_count():
 		_typing_time += get_process_delta_time()
 		%TopLabel.visible_characters = typing_speed * _typing_time as int
-		await get_tree().process_frame
+		if get_tree():
+			await get_tree().process_frame
