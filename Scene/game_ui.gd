@@ -13,7 +13,6 @@ func display_story(story_array: Array[Array]) -> void:
 		%TopLabel/ReadingTime.wait_time = time
 		%TopLabel/ReadingTime.start()
 		await %TopLabel/ReadingTime.timeout
-		print("yay")
 	
 	%TopLabel.text = ""
 
