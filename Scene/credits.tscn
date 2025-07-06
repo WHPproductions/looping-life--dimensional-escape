@@ -1,52 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt75g5n3ns6fa"]
+[gd_scene load_steps=6 format=3 uid="uid://bt75g5n3ns6fa"]
 
 [ext_resource type="Texture2D" uid="uid://i7p771h4sxtd" path="res://Asset/menu/CreditsTeamUndefined.png" id="1_3hbp5"]
 [ext_resource type="Script" uid="uid://dh3yo7cr8qdn3" path="res://Scene/credits.gd" id="1_3rv14"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_3rv14"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wofek"]
-bg_color = Color(0.144063, 0.144063, 0.144062, 1)
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="4_wofek"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pb5xx"]
 texture = ExtResource("1_3hbp5")
-
-[sub_resource type="Animation" id="Animation_wofek"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Credits:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(138, 37)]
-}
-
-[sub_resource type="Animation" id="Animation_3rv14"]
-resource_name = "credits_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Credits:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(138, 37), Vector2(138, 40), Vector2(138, 37)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pb5xx"]
-_data = {
-&"RESET": SubResource("Animation_wofek"),
-&"credits_animation": SubResource("Animation_3rv14")
-}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -57,15 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3rv14")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wofek")
-
 [node name="Credits" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 1
@@ -75,9 +26,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -122.004
+offset_top = -125.0
 offset_right = 150.0
-offset_bottom = 127.996
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pb5xx")
@@ -92,9 +43,17 @@ theme_override_fonts/font = ExtResource("2_3rv14")
 theme_override_font_sizes/font_size = 17
 text = "NEXT"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pb5xx")
-}
+[node name="Next2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 95.0
+offset_bottom = 319.0
+theme_override_fonts/font = ExtResource("2_3rv14")
+theme_override_font_sizes/font_size = 17
+text = "BACK"
+
+[node name="Fade" parent="." instance=ExtResource("4_wofek")]
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Next2" to="." method="_on_next_2_pressed"]

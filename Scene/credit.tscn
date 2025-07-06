@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://5eth5ylmnp3k"]
+
+[ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="1_3ie45"]
+[ext_resource type="Script" uid="uid://cal3iljtf1jat" path="res://Scene/credit.gd" id="1_x5nq7"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_lq68i"]
+
+[node name="credit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x5nq7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -118.5
+offset_right = 177.0
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3ie45")
+theme_override_font_sizes/font_size = 12
+text = "Sound/Music
+
+Pixabay:
+SingularitysMarauder
+freesound_community
+Universfield
+Alice_soundz
+kamhunt
+
+freesound.org :
+1_knife_slash_a by lmbubec
+i-see-dead-people-horror-sound by turtleheadwalker
+glass-smash-3 by mysterypancake
+custom_transformers_scifi_designed_mechanical_metal_impact_sound by artninja
+electric_zap"
+horizontal_alignment = 1
+
+[node name="Next2" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 95.0
+offset_bottom = 319.0
+theme_override_fonts/font = ExtResource("1_3ie45")
+theme_override_font_sizes/font_size = 17
+text = "BACK"
+
+[node name="Fade" parent="." instance=ExtResource("3_lq68i")]
+
+[connection signal="pressed" from="Next2" to="." method="_on_next_2_pressed"]
