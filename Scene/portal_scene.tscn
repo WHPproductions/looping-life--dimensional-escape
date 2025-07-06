@@ -1,0 +1,291 @@
+[gd_scene load_steps=27 format=3 uid="uid://05wsutnc0n8i"]
+
+[ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="1_aflf8"]
+[ext_resource type="Script" uid="uid://bar6sn1cj5dfn" path="res://Scene/portal_scene.gd" id="1_j1rfa"]
+[ext_resource type="Texture2D" uid="uid://fts5ts2ripi0" path="res://Asset/Creature/player.png" id="2_lpywo"]
+[ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="3_5h6wl"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="4_un8ry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgdln"]
+atlas = ExtResource("3_5h6wl")
+region = Rect2(0, 0, 57, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chf1j"]
+atlas = ExtResource("3_5h6wl")
+region = Rect2(57, 0, 57, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1pgd"]
+atlas = ExtResource("3_5h6wl")
+region = Rect2(114, 0, 57, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vfx8"]
+atlas = ExtResource("3_5h6wl")
+region = Rect2(171, 0, 57, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xq4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgdln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chf1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1pgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vfx8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h6wl"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un8ry"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1rfa"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8e5x"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gd1"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avb2i"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p6tu"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jytpv"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uxh8"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5y3r"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfenn"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4swcu"]
+atlas = ExtResource("2_lpywo")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgdln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h6wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un8ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1rfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8e5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avb2i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p6tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jytpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uxh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5y3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfenn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4swcu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_lpywo"]
+resource_name = "portal"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 8, 8.47, 8.96667, 9.46, 9.96, 10.46, 10.96, 11.46),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(216, 161), Vector2(216, 161), Vector2(278, 161), Vector2(278, 161), Vector2(297, 177), Vector2(315, 151), Vector2(302, 130), Vector2(295, 154), Vector2(311, 152), Vector2(306, 155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Player:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.03333, 8, 8.47),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"walk", &"idle", &"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.48, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("map:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8.48, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_5h6wl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5h6wl"]
+_data = {
+&"RESET": SubResource("Animation_5h6wl"),
+&"portal": SubResource("Animation_lpywo")
+}
+
+[node name="PortalScene" type="Node2D"]
+script = ExtResource("1_j1rfa")
+
+[node name="map" type="Sprite2D" parent="."]
+position = Vector2(-80, -168)
+texture = ExtResource("1_aflf8")
+
+[node name="Portal" type="Node2D" parent="."]
+position = Vector2(307, 152)
+
+[node name="Portal" type="AnimatedSprite2D" parent="Portal"]
+sprite_frames = SubResource("SpriteFrames_6xq4w")
+autoplay = "default"
+frame_progress = 0.809933
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(216, 161)
+
+[node name="Player" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_xgdln")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.509146
+
+[node name="Camera2D" type="Camera2D" parent="Player/Player"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5h6wl")
+}
+autoplay = "portal"
+
+[node name="Fade" parent="." instance=ExtResource("4_un8ry")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="cinematic" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/cinematic"]
+offset_left = -128.0
+offset_top = 280.0
+offset_right = 749.0
+offset_bottom = 609.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/cinematic"]
+offset_left = -128.0
+offset_top = -288.0
+offset_right = 749.0
+offset_bottom = 41.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
