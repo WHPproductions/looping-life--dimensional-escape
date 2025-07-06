@@ -10,7 +10,7 @@ func door_open():
 	$Delay.start()
 	await $Delay.timeout #tunggu sebentar sampai pintu terbuka
 	$Blocking/LastDoorCollision.queue_free()
-	$StaticCollision.collision_layer = 1  #enable collision
+	$StaticCollision.collision_layer = 2  #enable collision
 
 func _on_last_door_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

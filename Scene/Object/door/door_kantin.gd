@@ -16,4 +16,4 @@ func door_open():
 	await $Delay.timeout #tunggu sebentar sampai pintu terbuka
 	$DoorKantinArea.queue_free()
 	$Blocking/DoorKantinCollision.queue_free()
-	$StaticCollision.collision_layer = 1  #enable collision
+	$StaticCollision.collision_layer = 2  #enable collision

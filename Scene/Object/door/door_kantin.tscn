@@ -51,18 +51,24 @@ script = ExtResource("1_74620")
 sprite_frames = SubResource("SpriteFrames_xf0v0")
 
 [node name="DoorKantinArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorKantinArea"]
 position = Vector2(-16, -1)
 shape = SubResource("RectangleShape2D_8dmun")
 
 [node name="Blocking" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="DoorKantinCollision" type="CollisionShape2D" parent="Blocking"]
 position = Vector2(-16, -1)
 shape = SubResource("RectangleShape2D_3chai")
 
 [node name="StaticCollision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticCollision"]
 position = Vector2(0, -22.5)
