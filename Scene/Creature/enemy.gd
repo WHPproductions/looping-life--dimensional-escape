@@ -9,7 +9,6 @@ enum State {
 }
 
 @export var speed: int = 100
-@export var increase_detector_area: int = 0
 
 var player: Player = null
 var player_in_area := false
