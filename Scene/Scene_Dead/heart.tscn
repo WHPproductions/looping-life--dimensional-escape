@@ -54,6 +54,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_s50q0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlassShatter:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_kssdt"]
 resource_name = "dead_by_alomani"
 length = 6.5
@@ -314,12 +329,19 @@ tracks/6/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_s50q0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kssdt"]
+_data = {
+&"RESET": SubResource("Animation_s50q0"),
+&"dead_by_alomani": SubResource("Animation_kssdt"),
+&"dead_by_object": SubResource("Animation_g780t")
+}
+
+[sub_resource type="Animation" id="Animation_1s767"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GlassShatter:playing")
+tracks/0/path = NodePath("EvilLaugh:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -327,13 +349,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kssdt"]
-_data = {
-&"RESET": SubResource("Animation_s50q0"),
-&"dead_by_alomani": SubResource("Animation_kssdt"),
-&"dead_by_object": SubResource("Animation_g780t")
 }
 
 [sub_resource type="Animation" id="Animation_lq1r6"]
@@ -362,21 +377,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_1s767"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EvilLaugh:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s50q0"]

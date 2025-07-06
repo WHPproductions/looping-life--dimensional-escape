@@ -1,0 +1,549 @@
+[gd_scene load_steps=25 format=3 uid="uid://dx8lvyqi5lau7"]
+
+[ext_resource type="Texture2D" uid="uid://dibl1ogdwv5ab" path="res://Asset/Terrain/for animation/rumah.png" id="1_niprl"]
+[ext_resource type="Script" uid="uid://cr0cfhfii3w8j" path="res://Scene/story.gd" id="1_pkm83"]
+[ext_resource type="Texture2D" uid="uid://duweactuow7jr" path="res://Asset/Creature/playerStory.png" id="2_ler5b"]
+[ext_resource type="Texture2D" uid="uid://dnipoc4vd8xuo" path="res://Asset/Terrain/for animation/dialogbox.png" id="3_43665"]
+[ext_resource type="FontFile" uid="uid://b8ew0ojvsa31w" path="res://Asset/menu/VCR_OSD_MONO_1.001.ttf" id="4_71eu4"]
+[ext_resource type="PackedScene" uid="uid://c5o2nmmnf78ee" path="res://Scene/Scene_Dead/heart.tscn" id="5_s0mjq"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="7_3giih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43665"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71eu4"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0mjq"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkm83"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3giih"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hs6g"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ler5b"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyekn"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ewe"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp1y4"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj37j"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rk6k"]
+atlas = ExtResource("2_ler5b")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyekn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43665")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71eu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0mjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkm83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3giih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hs6g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ler5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyekn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ewe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp1y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj37j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rk6k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71eu4"]
+texture = ExtResource("3_43665")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Animation" id="Animation_43665"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/Panel/Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/Panel:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(43, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/Panel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48, -40)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player/Panel/Label:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Ternyata setelah pulang sekolah capek juga ya"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("player/Panel/Label:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 23)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Fade:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/heart:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:shake")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Text/Label:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Text/Label:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ler5b"]
+resource_name = "scene_1"
+length = 64.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 5, 22, 23.5, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 192), Vector2(640, 192), Vector2(320, 192), Vector2(320, 192), Vector2(232, 176), Vector2(104, 176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 22.01, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"walk", &"idle", &"walk", &"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.24, 21.8333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/Panel/Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5.33333, 5.98, 7.99667, 8.26667, 8.86, 11.9667, 15, 15.7667, 16.0177, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/Panel:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8.4333, 8.9233, 15.8, 16.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(43, 12), Vector2(43, 12), Vector2(96, 24), Vector2(96, 24), Vector2(96, 18)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/Panel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.43333, 8.92333, 15.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, -40), Vector2(-20, -40), Vector2(-48, -40), Vector2(-48, -40)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player/Panel/Label:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.36667, 16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Hoaaam...", "Ternyata setelah pulang dari sekolah capek juga ya", "Mungkin aku akan beristirahat sebentar"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("player/Panel/Label:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.36667, 8.76667, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(39, 10), Vector2(39, 10), Vector2(92, 23), Vector2(92, 23)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Fade:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 26.305, 27.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/heart:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 28.5, 32.0222),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:shake")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 29.5, 32.0222),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Text/Label:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 32.6016, 35.546, 40.0338, 44.0805, 47.9957, 52.0441, 56.5807, 61.1666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "HAHAHAHAHAHHAHAHAHAHAHAHAHA!!!!", "Selamat datang di dimensi ku", "Ini bukanlah tempat yang seharusnya kamu masuki", "Tapi sekarang kamu sudah di sini", "Dan kamu tidak akan bisa keluar dari dimensi ku", "Jika kamu ingin keluar dari dimensi ku...", "KAMU HARUS MEMBAYARNYA DENGAN NYAWA!!!", "HAHAHAHAHAHAHAAHHAHA!!!"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Text/Label:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 32.6108, 34, 35.5, 35.5333, 37, 40, 40.0138, 41.0138, 44.0333, 44.0667, 45.0472, 47.9667, 47.9957, 48.9667, 52, 52.0333, 53, 56.5667, 56.5807, 57.5807, 61.1333, 61.1667, 62.1333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43665"]
+_data = {
+&"RESET": SubResource("Animation_43665"),
+&"scene_1": SubResource("Animation_ler5b")
+}
+
+[node name="Story" type="Node2D"]
+script = ExtResource("1_pkm83")
+shake = true
+
+[node name="rumah" type="Node2D" parent="."]
+position = Vector2(272, 168)
+
+[node name="Sprite2D" type="Sprite2D" parent="rumah"]
+position = Vector2(48, 0)
+texture = ExtResource("1_niprl")
+
+[node name="player" type="Node2D" parent="."]
+position = Vector2(640, 192)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+sprite_frames = SubResource("SpriteFrames_wyekn")
+animation = &"idle"
+autoplay = "walk"
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(1.5, 1.5)
+limit_right = 620
+editor_draw_limits = true
+
+[node name="Panel" type="Panel" parent="player"]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 23.0
+offset_bottom = -28.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_71eu4")
+
+[node name="Label" type="Label" parent="player/Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.901961, 0.905882, 0.945098, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_71eu4")
+theme_override_font_sizes/font_size = 7
+text = "Ternyata setelah pulang sekolah capek juga ya"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_43665")
+}
+autoplay = "scene_1"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+offset_left = -128.0
+offset_top = -280.0
+offset_right = 749.0
+offset_bottom = 608.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="cinematic" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/cinematic"]
+offset_left = -128.0
+offset_top = 280.0
+offset_right = 749.0
+offset_bottom = 609.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/cinematic"]
+offset_left = -128.0
+offset_top = -288.0
+offset_right = 749.0
+offset_bottom = 41.0
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="heart" parent="CanvasLayer" instance=ExtResource("5_s0mjq")]
+
+[node name="Text" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.416603, 0.347925, 1)
+theme_override_fonts/font = ExtResource("4_71eu4")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Fade" parent="." instance=ExtResource("7_3giih")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

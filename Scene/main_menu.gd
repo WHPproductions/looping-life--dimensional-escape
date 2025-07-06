@@ -4,7 +4,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("menu_animation")
 
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scene/main_world.tscn")
+	get_tree().change_scene_to_file("res://Scene/story.tscn")
 
 
 func _on_credit_pressed() -> void:
