@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxwq8uupxx5gm"]
+[gd_scene load_steps=14 format=3 uid="uid://bxwq8uupxx5gm"]
 
 [ext_resource type="Script" uid="uid://d27eaxnq8enwh" path="res://Scene/main_menu.gd" id="1_kqsxi"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_hii65"]
@@ -75,6 +75,19 @@ _data = {
 &"menu_animation": SubResource("Animation_hptlk")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqads"]
+bg_color = Color(0, 0, 0, 0.2)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -107,9 +120,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -240.0
-offset_top = -42.0
+offset_top = -28.995
 offset_right = -53.0
-offset_bottom = 68.0
+offset_bottom = 123.005
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -117,6 +130,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="Start" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_hover_pressed_color = Color(0.133196, 0.133196, 0.133196, 1)
@@ -128,6 +142,16 @@ text = "Start"
 flat = true
 alignment = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="Difficulty" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_hii65")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_87ipw")
+text = "Difficulties"
+flat = true
+alignment = 0
 
 [node name="Credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -185,6 +209,68 @@ libraries = {
 
 [node name="Fade" parent="." instance=ExtResource("7_oqads")]
 
+[node name="Difficult" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BlockInteraction" type="Panel" parent="Difficult"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Difficult"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -36.0
+offset_right = 56.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Mudah" type="Button" parent="Difficult/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hii65")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqads")
+text = "Easy
+"
+
+[node name="Normal" type="Button" parent="Difficult/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hii65")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqads")
+text = "Normal
+"
+
+[node name="Sulit" type="Button" parent="Difficult/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hii65")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqads")
+text = "Hard"
+
+[node name="Close" type="Button" parent="Difficult/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hii65")
+theme_override_font_sizes/font_size = 18
+text = "Close
+"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Difficult/VBoxContainer/Mudah" to="." method="_on_mudah_pressed"]
+[connection signal="pressed" from="Difficult/VBoxContainer/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="Difficult/VBoxContainer/Sulit" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Difficult/VBoxContainer/Close" to="." method="_on_close_pressed"]

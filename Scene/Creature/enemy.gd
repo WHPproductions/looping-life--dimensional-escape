@@ -9,6 +9,7 @@ enum State {
 }
 
 @export var speed: int = 100
+@export var increase_detector_area: int = 0
 
 var player: Player = null
 var player_in_area := false
@@ -19,11 +20,29 @@ var state_timer: float = 0.0
 const MOVE_DURATION := 2.0
 const IDLE_DURATION := 1.0
 
+func adjust_collision_size(change: float) -> void:
+	var shape: CollisionShape2D = $PlayerDetector/CollisionShape2D
+	if shape and shape.shape is CircleShape2D:
+		shape.shape.radius += change
+	elif shape and shape.shape is RectangleShape2D:
+		shape.shape.size += Vector2(change, change)
+	
 func _ready() -> void:
 	randomize()
 	random_direction = get_random_direction()
 	state = State.MOVING
 	state_timer = MOVE_DURATION
+	
+	# difficulty 2/normal use the default value as is
+	match Globals.kesulitan:
+		0:  # Easy
+			speed -= 20
+			adjust_collision_size(-20)
+		1:  # Normal (default values)
+			pass  # No changes needed
+		2:  # Hard
+			speed += 30
+			adjust_collision_size(30)
 
 func _physics_process(delta: float) -> void:
 	if player:

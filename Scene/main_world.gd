@@ -38,7 +38,6 @@ func _ready() -> void:
 		emit_signal("adegan_awal")
 		adegan_awal_belum = false
 	
-	
 	# Mengkoneksi signal jika player mati
 	player.killed_by_env.connect(_on_player_killed_by_env)
 	player.killed_by_light.connect(_on_light_player_in_area)
