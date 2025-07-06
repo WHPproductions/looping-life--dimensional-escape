@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxn4vkt7kyt4j"]
+[gd_scene load_steps=10 format=3 uid="uid://bxn4vkt7kyt4j"]
 
 [ext_resource type="Script" uid="uid://b7vpjpcicfu8p" path="res://Scene/Object/portal.gd" id="1_e51ur"]
 [ext_resource type="Texture2D" uid="uid://dfurubqe8otpr" path="res://Asset/Terrain/Object/portal.png" id="1_m1u6g"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_m6083"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm1jm"]
 atlas = ExtResource("1_m1u6g")
@@ -36,7 +37,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1u6g"]
@@ -47,11 +48,14 @@ script = ExtResource("1_e51ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d2e8q")
+autoplay = "default"
 frame_progress = 0.611757
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_m1u6g")
+
+[node name="Fade" parent="." instance=ExtResource("3_m6083")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
