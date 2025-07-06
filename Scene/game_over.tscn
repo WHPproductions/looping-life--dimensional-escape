@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvwuqg7d40sjp"]
+
+[ext_resource type="FontFile" uid="uid://b8ew0ojvsa31w" path="res://Asset/menu/VCR_OSD_MONO_1.001.ttf" id="1_iosw2"]
+[ext_resource type="Script" path="res://Scene/game_over.gd" id="1_xnpu1"]
+[ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_lwxdm"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_mjsgh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjsgh"]
+border_color = Color(0.876389, 0.77297, 0.762829, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnpu1"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_color = Color(0.114897, 0.114897, 0.114897, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(0, 0.875)
+
+[node name="game over" type="CanvasLayer"]
+script = ExtResource("1_xnpu1")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -102.0
+offset_right = 90.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.415686, 0.34902, 1)
+theme_override_fonts/font = ExtResource("1_iosw2")
+theme_override_font_sizes/font_size = 27
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0.133196, 0.133196, 0.133196, 1)
+theme_override_fonts/font = ExtResource("2_lwxdm")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mjsgh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xnpu1")
+text = "Retry"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Main Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_lwxdm")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_xnpu1")
+text = "Main Menu"
+flat = true
+
+[node name="Fade" parent="." instance=ExtResource("3_mjsgh")]
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
