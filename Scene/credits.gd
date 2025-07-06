@@ -1,9 +1,9 @@
 extends Control
 
 
-func _ready() -> void:
-	$AnimationPlayer.play("credits_animation")
-
-
 func _on_next_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+	$Fade.fade("res://Scene/credit.tscn")
+
+
+func _on_next_2_pressed() -> void:
+	$Fade.fade("res://Scene/main_menu.tscn")
