@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cm3yoet12m7f3"]
+[gd_scene load_steps=29 format=3 uid="uid://cm3yoet12m7f3"]
 
 [ext_resource type="Texture2D" uid="uid://dibl1ogdwv5ab" path="res://Asset/Terrain/for animation/rumah.png" id="1_niprl"]
-[ext_resource type="Script" path="res://Scene/story.gd" id="1_pkm83"]
+[ext_resource type="Script" uid="uid://cr0cfhfii3w8j" path="res://Scene/story.gd" id="1_pkm83"]
 [ext_resource type="Texture2D" uid="uid://duweactuow7jr" path="res://Asset/Creature/playerStory.png" id="2_ler5b"]
 [ext_resource type="Texture2D" uid="uid://dnipoc4vd8xuo" path="res://Asset/Terrain/for animation/dialogbox.png" id="3_43665"]
 [ext_resource type="FontFile" uid="uid://b8ew0ojvsa31w" path="res://Asset/menu/VCR_OSD_MONO_1.001.ttf" id="4_71eu4"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b8xsido8x73nq" path="res://Asset/Sounds/sad_piano.mp3" id="8_wyekn"]
 [ext_resource type="AudioStream" uid="uid://b38uo48a4vf3y" path="res://Asset/Sounds/dark_rabbit_theme.mp3" id="9_g6ewe"]
 [ext_resource type="AudioStream" uid="uid://8rnylyikxjnw" path="res://Asset/Sounds/evil_demonic_laugh.mp3" id="10_g6ewe"]
+[ext_resource type="AudioStream" uid="uid://k7nvmsjfn3fu" path="res://Asset/Sounds/player_killed_by_enemy.mp3" id="11_gp1y4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_43665"]
 atlas = ExtResource("2_ler5b")
@@ -309,6 +310,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PlayerKilled:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ler5b"]
 resource_name = "scene_1"
@@ -505,6 +518,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PlayerKilled:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(28.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_43665"]
 _data = {
@@ -540,15 +565,15 @@ editor_draw_limits = true
 [node name="Panel" type="Panel" parent="player"]
 offset_left = -48.0
 offset_top = -40.0
-offset_right = 48.0
-offset_bottom = -22.0
+offset_right = -5.0
+offset_bottom = -27.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_71eu4")
 
 [node name="Label" type="Label" parent="player/Panel"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 94.0
+offset_right = 82.0
 offset_bottom = 25.0
 theme_override_colors/font_color = Color(0.901961, 0.905882, 0.945098, 1)
 theme_override_constants/line_spacing = 0
@@ -631,5 +656,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_43665")
 }
 autoplay = "scene_1"
+
+[node name="PlayerKilled" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gp1y4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

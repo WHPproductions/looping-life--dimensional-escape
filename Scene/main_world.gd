@@ -46,8 +46,11 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	
+	if Input.is_action_just_pressed("main_menu"):
+		$DeadScene/heart/Fade.fade("res://Scene/main_menu.tscn")
+	
 	# kalau pencet backspace, bakal ngebunuh si player.
-	if event.is_action_pressed("ui_text_backspace") and is_player_can_kill_herself:
+	if event.is_action_pressed("ui_accept") and is_player_can_kill_herself:
 		player.kill_by_env()
 		$Object/LastDoor.queue_free()
 		

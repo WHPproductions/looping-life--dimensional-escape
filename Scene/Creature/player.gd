@@ -22,6 +22,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var input_vector: Vector2 = get_input()
 	
+	
+	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * player_speed
 		

@@ -5,13 +5,13 @@ func _ready() -> void:
 
 func on_start_pressed() -> void:
 	if Globals.sudah_lihat_story:
-		get_tree().change_scene_to_file("res://game.tscn")
+		$Fade.fade("res://game.tscn")
 	else:
 		Globals.sudah_lihat_story = true
-		get_tree().change_scene_to_file("res://Scene/story.tscn")
+		$Fade.fade("res://Scene/story.tscn")
 
 func _on_credit_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scene/credits.tscn")
+	$Fade.fade("res://Scene/credits.tscn")
 
 
 func _on_exit_pressed() -> void:

@@ -45,15 +45,11 @@ var koleksi_light_pertama: Array[Array] =[
 		3.0,
 	],
 	[
-		"Sepertinya menyalakan suatu portal",
+		"Sepertinya menyalakan sesuatu",
 		5.0,
 	],
 	[
 		"...",
-		5.0,
-	],
-	[
-		"Aku harus mengumpulkannya, tinggal 3 lagi",
 		5.0,
 	],
 ]
@@ -75,7 +71,7 @@ var lingkaran_teraktivasi: Array[Array] =[
 		5.0,
 	],
 	[
-		"PENCET \"BACKSPACE\" UNTUK MENGORBANKAN NYAWAMU",
+		"KLIK \"SPACE\" UNTUK MENGORBANKAN NYAWAMU",
 		100
 	]
 ]

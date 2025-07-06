@@ -248,7 +248,7 @@ wait_time = 7.0
 one_shot = true
 
 [node name="PlayerCollectedLight" type="Timer" parent="Timers"]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="PlayerJumpscared" type="Timer" parent="Timers"]
