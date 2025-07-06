@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cm3yoet12m7f3"]
+[gd_scene load_steps=29 format=3 uid="uid://dx8lvyqi5lau7"]
 
 [ext_resource type="Texture2D" uid="uid://dibl1ogdwv5ab" path="res://Asset/Terrain/for animation/rumah.png" id="1_niprl"]
 [ext_resource type="Script" uid="uid://cr0cfhfii3w8j" path="res://Scene/story.gd" id="1_pkm83"]

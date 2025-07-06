@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://1j1jrk15f5qa"]
+
+[ext_resource type="Script" uid="uid://b2gn7qcasj0p5" path="res://Scene/Splash_screen/splash_screen.gd" id="1_v83cw"]
+[ext_resource type="PackedScene" uid="uid://bdsgf4as70hh" path="res://Scene/Splash_screen/team_splash_screen.tscn" id="3_r5bt3"]
+[ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_svbnd"]
+
+[node name="SplashScreenManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v83cw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SPCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TeamSplashScreen" parent="SPCenterContainer" instance=ExtResource("3_r5bt3")]
+layout_mode = 2
+
+[node name="Fade" parent="." instance=ExtResource("3_svbnd")]

@@ -49,15 +49,16 @@ func _input(event: InputEvent) -> void:
 		$DeadScene/heart/Fade.fade("res://Scene/main_menu.tscn")
 	
 	# kalau pencet backspace, bakal ngebunuh si player.
-	if event.is_action_pressed("ui_accept") and is_player_can_kill_herself:
-		player.kill_by_env()
-		$Object/LastDoor.queue_free()
+	if $%LingkaranSihir.lingkaran_sihir == true:
+		if event.is_action_pressed("ui_accept") and is_player_can_kill_herself:
+			player.kill_by_env()
+			$Object/LastDoor.queue_free()
 		
-		# Mulai adegan
-		if lingkaran_sudah_aktivasi_dan_player_bundir_belum:
-			lingkaran_sudah_aktivasi_dan_player_bundir_belum = false
-			await $Timers/PlayerKilledByEnv.timeout
-			emit_signal("lingkaran_sudah_aktivasi_dan_player_bundir")
+			# Mulai adegan
+			if lingkaran_sudah_aktivasi_dan_player_bundir_belum:
+				lingkaran_sudah_aktivasi_dan_player_bundir_belum = false
+				await $Timers/PlayerKilledByEnv.timeout
+				emit_signal("lingkaran_sudah_aktivasi_dan_player_bundir")
 
 func _on_player_killed_by_env() -> void:
 	# Menginisialisasi player baru
@@ -182,9 +183,11 @@ func _on_door_lapang_kantin_player_in_area() -> void:
 
 ## Untuk Jumpscare
 func _on_crying_child_player_touched_child() -> void:
+	$CameraShake.play("hardshake")
 	var jumpscare = load("res://Scene/jumpscare.tscn").instantiate()
 	add_child(jumpscare)
 	%Timers/PlayerJumpscared.start()
 	$SFX/Ambience.stream_paused = true
 	await $Timers/PlayerJumpscared.timeout
 	$SFX/Ambience.stream_paused = false
+	$CameraShake.stop()

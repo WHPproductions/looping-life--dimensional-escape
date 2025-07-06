@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdsgf4as70hh"]
+
+[ext_resource type="Texture2D" uid="uid://b6vhgcvn11ann" path="res://Asset/undefined_logo/logo_normal_full_invert.png" id="1_cmbwk"]
+
+[node name="TeamSplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 1080.0
+scale = Vector2(0.01, 0.01)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cmbwk")

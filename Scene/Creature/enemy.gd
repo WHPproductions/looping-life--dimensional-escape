@@ -2,6 +2,8 @@ class_name Enemy
 extends CharacterBody2D
 
 signal player_killed
+signal player_detected
+signal player_not_detected
 
 enum State {
 	IDLE,
@@ -124,12 +126,14 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = true
 		player = body as Player
+		emit_signal("player_detected")
 
 
 func _on_player_detector_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = false
 		player = null
+		emit_signal("player_not_detected")
 
 
 func _on_kill_player_area_body_entered(body: Node2D) -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bk3kqvy6tbwwv"]
 
-[ext_resource type="Script" uid="uid://b7f5bipngvh3t" path="res://Scene/Object/crying_child.gd" id="1_13wes"]
+[ext_resource type="Script" path="res://Scene/Object/crying_child.gd" id="1_13wes"]
 [ext_resource type="Texture2D" uid="uid://cs2ctyb0vdvkk" path="res://Asset/Creature/anak kecil.png" id="1_nq4w7"]
 [ext_resource type="AudioStream" uid="uid://dkytwemifyt2y" path="res://Asset/Sounds/woman_crying.mp3" id="2_nwbqf"]
 

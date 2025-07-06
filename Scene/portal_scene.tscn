@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6dua7h7081ji"]
+[gd_scene load_steps=29 format=3 uid="uid://05wsutnc0n8i"]
 
 [ext_resource type="Texture2D" uid="uid://lp1icq6u10ji" path="res://Asset/Terrain/maps_final.png" id="1_aflf8"]
 [ext_resource type="Script" uid="uid://bar6sn1cj5dfn" path="res://Scene/portal_scene.gd" id="1_j1rfa"]

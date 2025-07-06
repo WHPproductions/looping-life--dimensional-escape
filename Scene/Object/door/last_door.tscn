@@ -38,16 +38,12 @@ script = ExtResource("1_0vf0c")
 sprite_frames = SubResource("SpriteFrames_ar5in")
 
 [node name="Blocking" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
 
 [node name="LastDoorCollision" type="CollisionShape2D" parent="Blocking"]
 position = Vector2(-14.5, 0)
 shape = SubResource("RectangleShape2D_h1ik5")
 
 [node name="StaticCollision" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticCollision"]
 position = Vector2(17, 31.5)

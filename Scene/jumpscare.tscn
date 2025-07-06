@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dflns36clkuww"]
+[gd_scene load_steps=7 format=3 uid="uid://cmrngvcc8dm2o"]
 
-[ext_resource type="Script" uid="uid://c31k172fyf8a6" path="res://Scene/jumpscare.gd" id="1_cmair"]
+[ext_resource type="Script" path="res://Scene/jumpscare.gd" id="1_cmair"]
 [ext_resource type="Texture2D" uid="uid://crrxs5n41wcqw" path="res://Asset/Terrain/for animation/jumpscare.png" id="1_njd42"]
 [ext_resource type="AudioStream" uid="uid://bps25dnmf57l3" path="res://Asset/Sounds/woman_scream.mp3" id="2_3kggy"]
 
