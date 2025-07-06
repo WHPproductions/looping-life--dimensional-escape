@@ -2,7 +2,6 @@ extends Node2D
 
 signal activated
 
-var lingkaran_sihir = false
 var lights: int = 0
 var lingkaran_sihir: bool = false
 
@@ -39,8 +38,3 @@ func activate():
 		$SFX/Activated.play()
 		$AnimationPlayer.play("activated")
 		emit_signal("activated")
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body is Player:
-		lingkaran_sihir = false

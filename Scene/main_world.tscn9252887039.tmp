@@ -92,6 +92,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Darkness" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Object" type="Node2D" parent="."]
