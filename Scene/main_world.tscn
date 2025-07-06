@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bofn7ebhpfs3h" path="res://Scene/Object/lingkaran_sihir.tscn" id="9_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://ddnxfku1vshsk" path="res://Scene/Object/light.tscn" id="10_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dvmjfp7ie1v1l" path="res://Scene/Object/loker.tscn" id="11_d2e8q"]
-[ext_resource type="PackedScene" uid="uid://bxn4vkt7kyt4j" path="res://Scene/Object/portal.tscn" id="11_ltmb4"]
+[ext_resource type="PackedScene" path="res://Scene/Object/portal.tscn" id="11_ltmb4"]
 [ext_resource type="PackedScene" uid="uid://cfd4qq3434n7i" path="res://Scene/Object/door/door_gudang.tscn" id="12_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://cfwgquu2q0pwj" path="res://Scene/Object/door/door_kantin.tscn" id="13_lrnoa"]
 [ext_resource type="PackedScene" uid="uid://dpdcnhmjvtbx2" path="res://Scene/Creature/enemy.tscn" id="13_sxve6"]
@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://dmxnvibsdqy5s" path="res://Asset/Sounds/door_open.mp3" id="21_vev1i"]
 [ext_resource type="AudioStream" uid="uid://sh3qhb1ftjud" path="res://Asset/Sounds/light_picked.mp3" id="22_8vddu"]
 [ext_resource type="AudioStream" uid="uid://c26mhrhdl1cl" path="res://Asset/Sounds/item_pickup.mp3" id="23_uvqeb"]
-[ext_resource type="PackedScene" uid="uid://bk3kqvy6tbwwv" path="res://Scene/Object/crying_child.tscn" id="26_lkpu5"]
+[ext_resource type="PackedScene" path="res://Scene/Object/crying_child.tscn" id="26_lkpu5"]
 
 [node name="main_world" type="Node2D"]
 script = ExtResource("1_d2e8q")
@@ -223,6 +223,8 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_2av1i")]
 unique_name_in_owner = true
 position = Vector2(200, 1020)
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 
 [node name="Camera" type="Camera2D" parent="Player"]
