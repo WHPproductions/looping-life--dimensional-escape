@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw4jt3v0tj4vv"]
+[gd_scene load_steps=8 format=3 uid="uid://bw4jt3v0tj4vv"]
 
 [ext_resource type="Script" uid="uid://mv02ljanhlat" path="res://Scene/Object/door/last_door.gd" id="1_0vf0c"]
 [ext_resource type="Texture2D" uid="uid://dt64tcecfmslx" path="res://Asset/Terrain/Object/LastDoor.png" id="1_j5iq7"]
@@ -25,9 +25,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vf0c"]
-size = Vector2(37.75, 68.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ik5"]
 size = Vector2(11, 82)
 
@@ -39,12 +36,6 @@ script = ExtResource("1_0vf0c")
 
 [node name="LastDoor" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ar5in")
-
-[node name="LastDoorArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LastDoorArea"]
-position = Vector2(-39.125, 6.75)
-shape = SubResource("RectangleShape2D_0vf0c")
 
 [node name="Blocking" type="StaticBody2D" parent="."]
 
@@ -60,5 +51,3 @@ shape = SubResource("RectangleShape2D_gvyy5")
 
 [node name="Delay" type="Timer" parent="."]
 wait_time = 0.5
-
-[connection signal="body_entered" from="LastDoorArea" to="." method="_on_last_door_area_body_entered"]
