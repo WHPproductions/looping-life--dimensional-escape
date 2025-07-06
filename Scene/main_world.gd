@@ -177,7 +177,7 @@ func _on_door_lapang_player_in_area() -> void:
 		%DoorLapang.door_open()
 
 func _on_door_lapang_kantin_player_in_area() -> void:
-	if keys_inventory["kunci_kantin"]:
+	if keys_inventory["kunci_lapangan"]:
 		$SFX/DoorOpened.play()
 		%DoorLapangKantin.door_open()
 

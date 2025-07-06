@@ -65,7 +65,7 @@ kunci = "kunci_lapangan"
 texture = ExtResource("6_efshx")
 
 [node name="KunciKantin" parent="Object/Kunci" instance=ExtResource("5_4md47")]
-position = Vector2(428, 1026)
+position = Vector2(1017, 706)
 kunci = "kunci_kantin"
 texture = ExtResource("7_lrnoa")
 
