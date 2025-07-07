@@ -206,72 +206,76 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(402, 841, 402, 952, 544, 952, 544, 1026, 642, 1026, 642, 916, 713, 916, 713, 786, 467, 786, 467, 841)
 metadata/_edit_lock_ = true
 
-[node name="object_2" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="object_2" type="CollisionPolygon2D" parent="Collisions/object"]
 polygon = PackedVector2Array(325, 1375, 335, 1369, 340, 1373, 339, 1384, 340, 1386, 336, 1390, 337, 1394, 339, 1396, 340, 1399, 331, 1400, 325, 1400, 324, 1377)
 metadata/_edit_lock_ = true
 
-[node name="object_3" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_3" type="CollisionPolygon2D" parent="Collisions/object"]
 polygon = PackedVector2Array(421, 1403, 434, 1403, 434, 1394, 421, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_4" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_4" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(35, 52)
 polygon = PackedVector2Array(421, 1402, 434, 1402, 434, 1394, 421, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_5" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_5" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(96, -36)
 polygon = PackedVector2Array(421, 1403, 434, 1403, 434, 1394, 421, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_6" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_6" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(143, -37)
 polygon = PackedVector2Array(417, 1402, 421, 1402, 421, 1403, 434, 1403, 434, 1394, 417, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_7" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_7" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(139, 45)
 polygon = PackedVector2Array(417, 1403, 424, 1403, 424, 1404, 436, 1404, 436, 1394, 417, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_8" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_8" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(138, -81)
 polygon = PackedVector2Array(415, 1402, 422, 1402, 422, 1403, 434, 1403, 434, 1394, 415, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_9" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_9" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(140, 1)
 polygon = PackedVector2Array(415, 1403, 421, 1403, 421, 1404, 434, 1404, 434, 1395, 421, 1395, 418, 1394, 415, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_10" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_10" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(100, -2)
 polygon = PackedVector2Array(421, 1398, 415, 1398, 415, 1403, 421.059, 1403, 421, 1404, 434, 1404, 434, 1394, 421, 1394)
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(98, 44)
 polygon = PackedVector2Array(421, 1398, 415, 1398, 415, 1403, 421, 1403, 421, 1404, 434, 1404, 434, 1394, 421, 1394)
 metadata/_edit_lock_ = true
 
-[node name="object_12" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_12" type="CollisionPolygon2D" parent="Collisions/object"]
 polygon = PackedVector2Array(631, 1415, 625, 1415, 625, 1417, 612, 1417, 612, 1401, 625, 1401, 625, 1410, 631, 1410)
 metadata/_edit_lock_ = true
 
-[node name="object_13" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_13" type="CollisionPolygon2D" parent="Collisions/object"]
 polygon = PackedVector2Array(669, 685, 654, 685, 654, 682, 668, 682, 668, 671, 854, 671, 854, 685)
 metadata/_edit_lock_ = true
 
-[node name="object_14" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_14" type="CollisionPolygon2D" parent="Collisions/object"]
 polygon = PackedVector2Array(709, 730, 738, 730, 738, 728, 745, 728, 745, 713, 709, 713, 709, 716, 703, 716, 703, 728, 709, 728)
 metadata/_edit_lock_ = true
 
-[node name="object_15" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_15" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(102, -12)
 polygon = PackedVector2Array(709, 730, 738, 730, 738, 728, 745, 728, 745, 716, 739, 716, 739, 713, 703, 713, 703, 728, 709, 728)
 metadata/_edit_lock_ = true
 
-[node name="object_16" type="CollisionPolygon2D" parent="Collisions/map"]
+[node name="object_16" type="CollisionPolygon2D" parent="Collisions/object"]
 position = Vector2(82, 31)
 polygon = PackedVector2Array(709, 730, 738, 730, 738, 728, 746, 728, 746, 713, 708, 713, 708, 716, 702, 716, 702, 728, 709, 728)
 metadata/_edit_lock_ = true
