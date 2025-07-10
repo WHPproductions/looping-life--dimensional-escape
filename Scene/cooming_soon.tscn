@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://km7joqfjhe76"]
 
-[ext_resource type="Script" path="res://Scene/cooming_soon.gd" id="1_q1euc"]
+[ext_resource type="Script" uid="uid://40uewjmsx3q1" path="res://Scene/cooming_soon.gd" id="1_q1euc"]
 [ext_resource type="FontFile" uid="uid://b8ew0ojvsa31w" path="res://Asset/menu/VCR_OSD_MONO_1.001.ttf" id="2_leo5g"]
 [ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_32rx3"]
 
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_leo5g")
 theme_override_font_sizes/font_size = 27
-text = "Comming Soon"
+text = "Coming Soon"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

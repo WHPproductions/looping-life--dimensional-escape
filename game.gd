@@ -13,7 +13,7 @@ var adegan_awal: Array[Array] = [
 		5.0,
 	],
 	[
-		"Ada apa diluar? Dimana aku?",
+		"Ada apa di luar? Dimana aku?",
 		5.0,
 	],
 	[
@@ -27,7 +27,7 @@ var terbunuh_pertama: Array[Array] = [
 		3.0,
 	],
 	[
-		"Apa? kenapa aku masih hidup?",
+		"Apa? Kenapa aku masih hidup?",
 		5.0,
 	],
 	[

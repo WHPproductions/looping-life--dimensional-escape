@@ -5,7 +5,7 @@ extends Node2D
 @onready var camera: Camera2D = %Camera
 @onready var flashlight: PointLight2D = %Flashlight
 
-#region Progress Story Signals (Untuk adegan di parent)
+#region Story Progression Signals (Untuk adegan di parent)
 
 var adegan_awal_belum := true
 var terbunuh_pertama_belum := true
@@ -48,11 +48,12 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("main_menu"):
 		$DeadScene/heart/Fade.fade("res://Scene/main_menu.tscn")
 	
-	# kalau pencet backspace, bakal ngebunuh si player.
+	# kalau pencet spasi, bakal ngebunuh si player.
 	if $%LingkaranSihir.lingkaran_sihir == true:
 		if event.is_action_pressed("ui_accept") and is_player_can_kill_herself:
 			player.kill_by_env()
-			$Object/LastDoor.queue_free()
+			if $Object/LastDoor:
+				$Object/LastDoor.queue_free()
 		
 			# Mulai adegan
 			if lingkaran_sudah_aktivasi_dan_player_bundir_belum:

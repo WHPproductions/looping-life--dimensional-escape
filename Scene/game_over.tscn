@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvwuqg7d40sjp"]
 
 [ext_resource type="FontFile" uid="uid://b8ew0ojvsa31w" path="res://Asset/menu/VCR_OSD_MONO_1.001.ttf" id="1_iosw2"]
-[ext_resource type="Script" path="res://Scene/game_over.gd" id="1_xnpu1"]
+[ext_resource type="Script" uid="uid://b04j2w08d77dg" path="res://Scene/game_over.gd" id="1_xnpu1"]
 [ext_resource type="FontFile" uid="uid://cc6374x5pbssc" path="res://Asset/menu/Ithaca.ttf" id="2_lwxdm"]
 [ext_resource type="PackedScene" uid="uid://jwvtm08y0buw" path="res://Scene/fade.tscn" id="3_mjsgh"]
 

@@ -13,6 +13,7 @@ config_version=5
 config/name="Looping Life: Dimensional Escape"
 run/main_scene="uid://1j1jrk15f5qa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=60
 config/icon="uid://oaosed31ec35"
 
 [autoload]
