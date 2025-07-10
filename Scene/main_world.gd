@@ -185,7 +185,7 @@ func _on_door_lapang_kantin_player_in_area() -> void:
 ## Untuk Jumpscare
 func _on_crying_child_player_touched_child() -> void:
 	$CameraShake.play("hardshake")
-	var jumpscare = load("res://Scene/jumpscare.tscn").instantiate()
+	var jumpscare: CanvasLayer = load("res://Scene/jumpscare.tscn").instantiate()
 	add_child(jumpscare)
 	%Timers/PlayerJumpscared.start()
 	$SFX/Ambience.stream_paused = true
